@@ -1,1195 +1,1289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Foundix: All-in-one business management platform for HR, IT, Accounting, Marketing, and more. Streamline operations and grow efficiently.">
-  <meta name="keywords" content="business management, HR software, IT solutions, accounting platform, marketing tools, inventory management, Foundix, ERP system, Egypt startups">
-  <meta name="author" content="Foundix Team">
-  <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="c8Cy0s4wnxtn0ov6m5-9jxVeLMxvAthViL3To-R9rKs">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Foundix - Manage Smarter, Grow Faster">
-  <meta property="og:description" content="Foundix brings all your business departments together in one smart platform. Streamline HR, IT, Accounting, and more.">
-  <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
-  <meta property="og:url" content="https://yourdomain.com">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Foundix - Manage Smarter, Grow Faster">
-  <meta name="twitter:description" content="Foundix brings all your business departments together in one smart platform.">
-  <meta name="twitter:image" content="https://yourdomain.com/images/twitter-image.jpg">
-  
-  <!-- Security Headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-  
-  <title>Foundix - All-in-One Business Management Platform</title>
-  
-  <!-- Preload Critical Resources -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOUNDIX // منظومة إدارة الأعمال ونقاط البيع الذكية (Smart ERP &amp; POS)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Foundix",
-    "description": "All-in-one business management platform",
-    "url": "https://yourdomain.com",
-    "logo": "Resource/logo_foundix.jpg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+201020005163",
-      "contactType": "Customer Service",
-      "email": "foundix.egypt@gmail.com",
-      "areaServed": "EG"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Giza",
-      "addressCountry": "EG"
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  }
-  </script>
+
+    :root {
+      --primary: #1d4ed8;
+      --primary-light: #3b82f6;
+      --primary-dark: #1e3a8a;
+      --navy-dark: #0f172a;
+      --navy-card: #1e293b;
+      --emerald: #059669;
+      --emerald-light: #10b981;
+      --amber: #d97706;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --border-light: #e2e8f0;
+      --border-card: #cbd5e1;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-body);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 8px 0;
+      font-size: 12px;
+    }
+    .top-strip-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge-pill-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* Navbar — strictly SINGLE LINE */
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    /* Fixed Logo with explicit LTR to prevent BiDi inversion */
+    .brand-link {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .brand-logo-ltr {
+      direction: ltr;
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Cairo', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+    .brand-eye {
+      display: inline-block;
+      width: 13px;
+      height: 8.5px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      position: relative;
+      margin: 0 1px;
+    }
+    .brand-eye::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .brand-slogan {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9.5px;
+      color: var(--text-muted);
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .nav-links-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      white-space: nowrap;
+    }
+    .nav-links-wrap a {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+    .nav-links-wrap a:hover {
+      color: var(--primary);
+    }
+
+    .nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: inherit;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-dark {
+      background: var(--navy-dark);
+      color: #fff;
+    }
+    .btn-dark:hover {
+      background: #1e293b;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text-dark);
+      border-color: var(--border-card);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-light);
+    }
+    .btn-lg {
+      padding: 13px 26px;
+      font-size: 14.5px;
+    }
+
+    /* HERO SECTION WITH VISIBLE CINEMATIC SLOW-MOTION VIDEO */
+    .hero {
+      position: relative;
+      background: #0b1329;
+      color: #fff;
+      padding: 80px 0 70px;
+      overflow: hidden;
+    }
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.52;
+      filter: saturate(1.1) contrast(1.1);
+    }
+    .hero-gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(11, 19, 41, 0.72) 0%, rgba(11, 19, 41, 0.92) 80%, #0b1329 100%),
+                  radial-gradient(circle at 75% 30%, rgba(37, 99, 235, 0.3) 0%, transparent 60%);
+      z-index: 2;
+    }
+    .hero-container {
+      position: relative;
+      z-index: 3;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 16px;
+      background: rgba(59, 130, 246, 0.18);
+      border: 1px solid rgba(147, 197, 253, 0.3);
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      color: #93c5fd;
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .hero-title {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 18px;
+      max-width: 860px;
+    }
+    .hero-title span {
+      color: #60a5fa;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: #cbd5e1;
+      max-width: 760px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    /* Floating Metric Strip in Hero */
+    .hero-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .hero-metric-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      backdrop-filter: blur(12px);
+    }
+    .hero-metric-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .hero-metric-label {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Section Global */
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section-white {
+      background: #ffffff;
+    }
+    .section-header {
+      margin-bottom: 44px;
+    }
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      background: #eff6ff;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .section-desc {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    /* REAL PHOTOGRAPHY SHOWCASE CARDS */
+    .photo-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .photo-feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .photo-feature-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-3px);
+      border-color: #cbd5e1;
+    }
+    .photo-feature-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+    .photo-feature-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .photo-feature-card:hover .photo-feature-img {
+      transform: scale(1.03);
+    }
+    .photo-badge-overlay {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .photo-feature-body {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .photo-feature-body h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .photo-feature-body p {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .feature-tags-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag-chip {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      color: var(--text-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* POS Cashier Architecture & Live Bill */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: #eff6ff;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .feature-content h4 {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .feature-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Live Cashier Screen Mockup */
+    .terminal-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .terminal-header {
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: 'Geist Mono', monospace;
+    }
+    .terminal-body {
+      padding: 20px;
+    }
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 13px;
+    }
+    .bill-row:last-child {
+      border-bottom: none;
+    }
+    .code-badge {
+      font-family: 'Geist Mono', monospace;
+      background: var(--bg-light);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Hardware Matrix Table */
+    .hardware-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      font-size: 13.5px;
+    }
+    .hardware-table th {
+      background: #f1f5f9;
+      color: var(--text-dark);
+      font-weight: 700;
+      padding: 14px 18px;
+      text-align: right;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hardware-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-body);
+    }
+    .hardware-table tr:last-child td {
+      border-bottom: none;
+    }
+    .check-green {
+      color: var(--emerald);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: all 0.25s;
+    }
+    .pricing-card:hover {
+      box-shadow: var(--shadow-xl);
+      border-color: #cbd5e1;
+    }
+    .pricing-card.popular {
+      border: 2px solid var(--primary);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15);
+    }
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 14px;
+      border-radius: var(--radius-pill);
+    }
+    .tier-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .tier-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      min-height: 38px;
+    }
+    .tier-price-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+    .tier-price-val span {
+      font-family: 'Cairo', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .tier-annual-note {
+      font-size: 12px;
+      color: var(--emerald);
+      font-weight: 700;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .tier-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      font-size: 13px;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .tier-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* FAQ Section */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* Grounded Final CTA */
+    .cta-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 56px 36px;
+      text-align: center;
+      margin: 64px 0;
+      box-shadow: var(--shadow-xl);
+    }
+    .cta-banner h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      font-size: 15.5px;
+      color: #cbd5e1;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-light);
+      padding: 32px 0;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Print Optimization for PDF Export (A4 Clean Multi-page) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt !important;
+      }
+      .top-strip, header, .btn, .no-print, .hero-video-bg, .hero-gradient-overlay {
+        display: none !important;
+      }
+      .hero {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 20px 0 !important;
+      }
+      .hero-title, .hero-title span {
+        color: #000000 !important;
+      }
+      .hero-desc {
+        color: #333333 !important;
+      }
+      .hero-metric-card, .photo-feature-card, .pricing-card, .faq-item, .terminal-card {
+        border: 1px solid #cccccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 14px !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .photo-feature-grid, .two-col-layout, .pricing-grid, .faq-grid {
+        display: block !important;
+      }
+      .section {
+        padding: 20px 0 !important;
+        page-break-inside: avoid;
+      }
+      .print-doc-header {
+        display: block !important;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+    }
+    .print-doc-header {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progressBar"></div>
-  
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">
-        <img src="Resource/logo_foundix.jpg" alt="Foundix Logo" loading="eager">
-      </a>
-      
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#testimonials" class="nav-link">Clients</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="#blog" class="nav-link">Blog</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Logo Intro Section -->
-  <section class="logo-intro-section">
-    <div class="logo-intro-container">
-      <div class="logo-intro-content" data-aos="zoom-in">
-        <img src="Resource/logo_foundix.jpg" alt="Foundix Logo" class="intro-logo">
-        <h1 class="intro-tagline" data-aos="fade-up" data-aos-delay="200">
-          <span class="neon-gradient-text">Foundation meets growth</span>
-        </h1>
-      </div>
-      
-      <div class="hero-trusted-carousel" data-aos="fade-up" data-aos-delay="300">
-        <div class="carousel-track">
-          <div class="carousel-item">
-            <img src="Resource/cilantro.jpg" alt="Cilantro" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/aman.jpeg" alt=" HR" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/logo_2.jpg" alt="Team HR" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/cilantro.jpg" alt="Cilantro" loading="eager">
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="carousel-item">
-            <img src="Resource/logo.png" alt="Team Developers" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/logo_2.jpg" alt="Team HR" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/Logo_3.jpg" alt="Finance & Media" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/cilantro.jpg" alt="Cilantro" loading="eager">
-          </div>
-          <div class="carousel-item">
-            <img src="Resource/aman.jpeg" alt="Team HR" loading="eager">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero-section">
-    <div class="hero-bg-animated">
-      <div class="neon-orb neon-orb-1"></div>
-      <div class="neon-orb neon-orb-2"></div>
-      <div class="neon-orb neon-orb-3"></div>
-      <div class="grid-overlay"></div>
-    </div>
-    
-    <div class="hero-content-wrapper">
-      <div class="hero-badge" data-aos="fade-down">
-        <i class="fas fa-rocket"></i>
-        <span>Foundation meets growth</span>
+  <!-- Printable Header for PDF -->
+  <div class="print-doc-header container">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h2 style="font-size:20pt; font-weight:800;">FOUNDIX // وثيقة المواصفات الفنية والتجارية</h2>
+        <p style="font-size:10pt; color:#475569;">منظومة إدارة الأعمال ونقاط البيع الذكية (Smart ERP &amp; POS) — جمهورية مصر العربية</p>
       </div>
-      
-      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-        Manage Smarter.<br>
-        <span class="neon-gradient-text">Grow Faster.</span>
+      <div style="text-align:left; font-size:9.5pt; color:#64748b;">
+        <p>النسخة: P1 MVP</p>
+        <p>الموقع: foundix.net</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="container top-strip-flex">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span class="badge-pill-green">● متوافق مع مصلحة الضرائب المصرية (ETA)</span>
+        <span>منظومة كاشير ومخازن مستقلة مبنية لبيئة العمل الشاقة في مصر</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <span>دعم فني وتشغيل ميداني بالمحافظات</span>
+        <span style="font-family:'Geist Mono', monospace; font-weight:700;">foundix.net</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strict Single-Line Navbar -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo with explicit LTR to prevent BiDi inversion -->
+        <a href="#" class="brand-link">
+          <div class="brand-logo-ltr">
+            <span>F</span><span class="brand-eye"></span><span>UNDIX</span>
+          </div>
+          <div class="brand-slogan">FOUNDATION - MEETS - GROWTH</div>
+        </a>
+
+        <!-- Clean Menu Links -->
+        <ul class="nav-links-wrap">
+          <li><a href="#cashier">شاشة الكاشير</a></li>
+          <li><a href="#offline">العمل 72h أوفلاين</a></li>
+          <li><a href="#scales">الموازين والكسور</a></li>
+          <li><a href="#hardware">الأجهزة المتوافقة</a></li>
+          <li><a href="#pricing">الباقات والأسعار</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="nav-btns">
+          <button onclick="window.print()" class="btn btn-secondary" title="تحميل أو طباعة الكتيب كملف PDF">
+            🖨️ حفظ PDF
+          </button>
+          <a href="#cta" class="btn btn-primary">طلب نسخة تجريبية</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH SLOW-MOTION VIDEO -->
+  <section class="hero">
+    <div class="hero-video-bg">
+      <video autoplay muted loop playsinline poster="assets/unsplash-checkout.jpg">
+        <source src="assets/bg-retail-slowmo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-gradient-overlay"></div>
+
+    <div class="container hero-container">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>إصدار P1 MVP المعتمد تجارياً في مصر 🇪🇬</span>
+      </div>
+
+      <h1 class="hero-title">
+        الأساس المتين لتجارتك.. <br>
+        يبدأ من <span>كاشير ذكي سريع</span> لا يتوقف عند انقطاع النت
       </h1>
-      
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-        Foundix brings all your business departments together—HR, IT, Accounting, Quality, Design, Marketing, Sales, Inventory, Call Center, and more—in one smart platform.
+
+      <p class="hero-desc">
+        تخلص تماماً من بطء البرامج السحابية وأخطاء تسعير موازين الجبن واللحوم وعجز جرد المنظفات والسوائل. تقدم <strong>FOUNDIX</strong> منظومة تشغيلية مستقلة تعمل <strong>72 ساعة كاملة بدون إنترنت</strong>، وتقرأ باركود الموازين في <strong>142ms</strong>، مع إصدار إيصالات معتمدة من <strong>مصلحة الضرائب المصرية</strong>.
       </p>
-      
-      <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-        <a href="#contact" class="btn btn-neon-primary">
-          <span>Get Started</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#about" class="btn btn-neon-secondary">
-          <i class="fas fa-info-circle"></i>
-          <span>Learn More</span>
-        </a>
-      </div>
-      
-      <div class="hero-features" data-aos="fade-up" data-aos-delay="400">
-        <div class="feature-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Real-time tracking</span>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Clear insights</span>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Full control</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="scroll-indicator">
-      <div class="mouse"></div>
-      <span>Scroll to explore</span>
-    </div>
-  </section>
-  
-  <!-- Portfolio PDF Section -->
-  <section class="portfolio-pdf-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Our Portfolio</span>
-        <h2 class="section-title">Company <span class="neon-gradient-text">Portfolio</span></h2>
-        <p class="section-subtitle">Explore our full corporate portfolio</p>
+
+      <div class="hero-actions">
+        <a href="#cashier" class="btn btn-primary btn-lg">استعراض شاشة الكاشير والمواصفات</a>
+        <button onclick="window.print()" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.25);">
+          تحميل وثيقة المواصفات (PDF)
+        </button>
       </div>
 
-      <div class="pdf-viewer-wrapper" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Toolbar -->
-        <div class="pdf-toolbar">
-          <div class="pdf-toolbar-left">
-            <i class="fas fa-file-pdf pdf-toolbar-icon"></i>
-            <span class="pdf-toolbar-title">FOUNDIX Corporate Portfolio</span>
-          </div>
-          <div class="pdf-toolbar-right">
-            <a href="Resource/FOUNDIX_Corporate_Portfolio.pdf" target="_blank" class="pdf-tool-btn" title="Open in New Tab">
-              <i class="fas fa-external-link-alt"></i>
-              <span>Open</span>
-            </a>
-            <a href="Resource/FOUNDIX_Corporate_Portfolio.pdf" download class="pdf-tool-btn pdf-tool-btn--accent" title="Download">
-              <i class="fas fa-download"></i>
-              <span>Download</span>
-            </a>
-          </div>
+      <!-- Hero Metrics Strip -->
+      <div class="hero-metrics-grid">
+        <div class="hero-metric-card">
+          <div class="hero-metric-val">142ms</div>
+          <div class="hero-metric-label">زمن مسح وقراءة باركود الميزان</div>
         </div>
-
-        <!-- PDF Embed -->
-        <div class="pdf-embed-container">
-          <object
-            data="Resource/FOUNDIX_Corporate_Portfolio.pdf"
-            type="application/pdf"
-            class="pdf-object"
-            aria-label="Foundix Corporate Portfolio">
-            <!-- Fallback for browsers that don't support object -->
-            <embed
-              src="Resource/FOUNDIX_Corporate_Portfolio.pdf"
-              type="application/pdf"
-              class="pdf-object" />
-            <!-- Final fallback -->
-            <div class="pdf-fallback-msg">
-              <i class="fas fa-file-pdf"></i>
-              <p>Your browser doesn't support inline PDF viewing.</p>
-              <a href="Resource/FOUNDIX_Corporate_Portfolio.pdf" target="_blank" class="btn btn-neon-primary">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Open Portfolio</span>
-              </a>
-            </div>
-          </object>
+        <div class="hero-metric-card">
+          <div class="hero-metric-val">72 ساعة</div>
+          <div class="hero-metric-label">استمرارية بيع وطباعة كاملة بدون إنترنت</div>
         </div>
-
+        <div class="hero-metric-card">
+          <div class="hero-metric-val">0.001L</div>
+          <div class="hero-metric-label">دقة حساب كسور اللتر والجرام للمنظفات</div>
+        </div>
+        <div class="hero-metric-card">
+          <div class="hero-metric-val">100%</div>
+          <div class="hero-metric-label">امتثال لمنظومة الإيصال الإلكتروني ETA</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Section -->
-  <section class="video-showcase-section">
+  <!-- SECTION 1: REAL PHOTOGRAPHY & BUSINESS SECTORS -->
+  <section class="section">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Watch Our Story</span>
-        <h2 class="section-title">See <span class="neon-gradient-text">Foundix</span> in Action</h2>
-        <p class="section-subtitle">Discover how we transform businesses</p>
+      <div class="section-header">
+        <span class="section-pill">الأنشطة والقطاعات المدعومة</span>
+        <h2 class="section-title">حلول عملية صُممت لواقع المتاجر والورش في مصر</h2>
+        <p class="section-desc">صور واقعية من بيئات العمل التي يخدمها النظام يومياً في قطاعات التجزئة المختلفة:</p>
       </div>
-      
-      <div class="video-showcase-wrapper" data-aos="zoom-in" data-aos-delay="100">
-        <div class="video-showcase-card neon-card">
-          <video 
-            controls 
-            controlsList="nodownload"
-            poster="Resource/logo_foundix.jpg" 
-            class="showcase-video"
-            playsinline
-            preload="metadata"
-            id="mainVideo">
-            <source src="Resource/foundix.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Blog Preview Section -->
-  <section id="blog" class="blog-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Latest Insights</span>
-        <h2 class="section-title">From Our <span class="neon-gradient-text">Blog</span></h2>
-        <p class="section-subtitle">Stay updated with industry trends and tips</p>
-      </div>
-      
-      <div class="blog-grid">
-        <article class="blog-card neon-card" data-aos="fade-up">
-          <div class="blog-image">
-            <img src="Resource/cilantro.jpg" alt="Cilantro Success Story" loading="lazy">
-            <span class="blog-category neon-badge">Success Story</span>
+
+      <div class="photo-feature-grid">
+        <!-- Photo Card 1: Retail Checkout -->
+        <div class="photo-feature-card">
+          <div class="photo-feature-img-wrap">
+            <img src="assets/unsplash-checkout.jpg" alt="Modern Retail Checkout" class="photo-feature-img">
+            <span class="photo-badge-overlay">نقطة بيع سريعة</span>
           </div>
-          <div class="blog-content">
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> Nov 30, 2025</span>
-            </div>
-            <h3>How Cilantro Transformed Their Operations with Foundix</h3>
-            <p>Discover how Cilantro streamlined their inventory management and boosted efficiency by 300% using our platform
-                Master inventory tracking with real-time updates, automated alerts, and AI-powered predictions for optimal stock levels.</p>
-          </div>
-        </article>
-           
-        <article class="blog-card neon-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="blog-image">
-            <img src="Resource/logo.png" alt="Inventory Management" loading="lazy">
-            <span class="blog-category neon-badge">Technology</span>
-          </div>
-          <div class="blog-content">
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> Nov 28, 2025</span>
-            </div>
-            <h3>Advanced Inventory Management: The Complete Guide and POS system</h3>
-            <p>Master inventory tracking with real-time updates, automated alerts, and AI-powered predictions for optimal stock levels.
-              to manage all thing in his store a system cashier  </p>
-          </div>
-        </article>
-        
-        <article class="blog-card neon-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="blog-image">
-            <img src="Resource/logo_2.jpg" alt="Client Testimonials" loading="lazy">
-            <span class="blog-category neon-badge">Testimonials</span>
-          </div>
-          <div class="blog-content">
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> Nov 25, 2025</span>
-            </div>
-            <h3>What Our Clients Say About Foundix</h3>
-            <p>Real stories from businesses that transformed their operations and achieved remarkable growth with our platform.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card glass-card" data-aos="fade-up">
-          <div class="stat-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3 class="stat-number" data-count="10">0</h3>
-          <p class="stat-label">Businesses Served</p>
-        </div>
-        
-        <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="stat-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3 class="stat-number" data-count="300">0</h3>
-          <p class="stat-label">Daily Users</p>
-        </div>
-        
-        <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="stat-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <h3 class="stat-number" data-count="2">0</h3>
-          <p class="stat-label">Years Experience</p>
-        </div>
-        
-        
-          
-      </div>
-    </div>
-  </section>
-  
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Our Story</span>
-        <h2 class="section-title">About <span class="gradient-text">Foundix</span></h2>
-        <p class="section-subtitle">Building the foundation for your business growth</p>
-      </div>
-      
-      <div class="about-content">
-        <div class="about-timeline" data-aos="fade-right">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
-              <h3>Our Mission</h3>
-              <p>At Foundix, we believe that the foundation of any successful company lies in smart, centralized management. Founded with a passion for simplifying business operations, our journey began with a vision to create a single platform that empowers businesses to thrive.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
-              <h3>Our Expertise</h3>
-              <p>With years of experience in business management solutions, Foundix has become a trusted partner for organizations worldwide. Our team of dedicated professionals works tirelessly to deliver cutting-edge technology and personalized support.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
-              <h3>Our Vision</h3>
-              <p>One platform to manage it all. We enable companies of all sizes to grow efficiently and achieve their full potential through innovative tools and unparalleled expertise.</p>
+          <div class="photo-feature-body">
+            <h3>كاشير السوبرماركت ومحلات البقالة والأجبان</h3>
+            <p>
+              سرعة مسح فائقة تمنع طوابير الزحام في أوقات الذروة، مع فك تلقائي لباركود موازين الجبن واللحوم (Prefix 20 &amp; 21)، ودعم كامل للدفع بالفيزا والمحافظ النقدية.
+            </p>
+            <div class="feature-tags-row">
+              <span class="tag-chip">✓ مسح موازين 142ms</span>
+              <span class="tag-chip">✓ دفع متعدد كاش وفيزا</span>
+              <span class="tag-chip">✓ تقفيل وردية آمن</span>
             </div>
           </div>
         </div>
-        
-        <div class="about-values" data-aos="fade-left">
-          <div class="value-card glass-card">
-            <div class="value-icon">
-              <i class="fas fa-rocket"></i>
+
+        <!-- Photo Card 2: Detergents & Chemical Refill -->
+        <div class="photo-feature-card">
+          <div class="photo-feature-img-wrap">
+            <img src="assets/unsplash-detergents.jpg" alt="Detergent and Liquid Refill Store" class="photo-feature-img">
+            <span class="photo-badge-overlay">المنظفات والصب</span>
+          </div>
+          <div class="photo-feature-body">
+            <h3>مصانع ومحلات المنظفات وخامات الصابون والصبانات</h3>
+            <p>
+              شراء الخامات بالبراميل والشكاير الكبيرة، وبيعها مجزأة بالجراكن وبكسور اللتر والجرام، مع خصم تلقائي من رصيد الخام بالمليلتر لمنع عجز الجرد وتسريب الأرباح.
+            </p>
+            <div class="feature-tags-row">
+              <span class="tag-chip">✓ وحدات قياس شجرية (UOM)</span>
+              <span class="tag-chip">✓ بيع بالمليلتر (0.001L)</span>
+              <span class="tag-chip">✓ منع عجز البراميل</span>
             </div>
-            <h3>Innovation</h3>
-            <p>Constantly evolving to meet the needs of modern businesses</p>
           </div>
-          
-          <div class="value-card glass-card">
-            <div class="value-icon">
-              <i class="fas fa-handshake"></i>
+        </div>
+
+        <!-- Photo Card 3: Supermarket Shelves & Inventory -->
+        <div class="photo-feature-card">
+          <div class="photo-feature-img-wrap">
+            <img src="assets/unsplash-supermarket.jpg" alt="Supermarket Inventory Management" class="photo-feature-img">
+            <span class="photo-badge-overlay">المخازن والتوريد</span>
+          </div>
+          <div class="photo-feature-body">
+            <h3>إدارة المخزون اللحظي وتنبيهات النواقص</h3>
+            <p>
+              دفتر حركة مخزني حقيقي غير قابل للتعديل اليدوي، يوضح حركة كل صنف بدقة، مع تنبيهات فورية قبل نفاد البضاعة وتقارير أرباح يومية واضحة لصاحب العمل.
+            </p>
+            <div class="feature-tags-row">
+              <span class="tag-chip">✓ دفتر مخزن غير قابل للتلاعب</span>
+              <span class="tag-chip">✓ تنبيهات نواقص تلقائية</span>
+              <span class="tag-chip">✓ تقارير أرباح على الموبايل</span>
             </div>
-            <h3>Collaboration</h3>
-            <p>Building strong partnerships with our clients</p>
           </div>
-          
-          <div class="value-card glass-card">
-            <div class="value-icon">
-              <i class="fas fa-star"></i>
+        </div>
+
+        <!-- Photo Card 4: Scale Barcode & Fresh Deli -->
+        <div class="photo-feature-card">
+          <div class="photo-feature-img-wrap">
+            <img src="assets/unsplash-scale-weights.jpg" alt="Fresh Produce and Deli Weighing Scale" class="photo-feature-img">
+            <span class="photo-badge-overlay">الموازين والأوزان</span>
+          </div>
+          <div class="photo-feature-body">
+            <h3>دعم موازين الباركود المتداولة في السوق المصري</h3>
+            <p>
+              ربط مباشر مع موازين CAS, Dibal, Rongta, Bizerba لقراءة ملصق الوزن بدقة وسرعة، مع استبعاد أي خطأ إدخال يدوي يضيع حق المحل أو الزبون.
+            </p>
+            <div class="feature-tags-row">
+              <span class="tag-chip">✓ متوافق مع CAS &amp; Dibal</span>
+              <span class="tag-chip">✓ طباعة إيصال ETA مع QR</span>
+              <span class="tag-chip">✓ بدون أسلاك ربط معقدة</span>
             </div>
-            <h3>Excellence</h3>
-            <p>Delivering top-quality solutions with precision</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">What We Offer</span>
-        <h2 class="section-title">Our <span class="gradient-text">Services</span></h2>
-        <p class="section-subtitle">Comprehensive solutions for every business need</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card glass-card" data-aos="zoom-in" data-service="1" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>HR Management</h3>
-          <p>Streamline your HR processes with real-time employee tracking and automated payroll</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="50" data-service="2" data-video="Resource/5.mp4">
-          <div class="service-icon">
-            <i class="fas fa-server"></i>
-          </div>
-          <h3>IT Infrastructure</h3>
-          <p>Manage your IT infrastructure with cloud integration and 24/7 support</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="100" data-service="3" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-calculator"></i>
-          </div>
-          <h3>Accounting & Finance</h3>
-          <p>Simplify accounting with automated financial reports and real-time insights</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="150" data-service="4" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-check-double"></i>
-          </div>
-          <h3>Quality Control</h3>
-          <p>Ensure product quality with advanced monitoring and compliance tracking</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="200" data-service="5" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3>Professional Design</h3>
-          <p>Create stunning visuals with professional design tools and templates</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="250" data-service="6" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-bullhorn"></i>
-          </div>
-          <h3>Marketing & Outreach</h3>
-          <p>Boost your brand with targeted campaigns and powerful analytics</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="300" data-service="7" data-video="Resource/2.mp4">
-          <div class="service-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>Team Developers</h3>
-          <p>Empower your development team with collaborative tools and version control</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="350" data-service="8" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-warehouse"></i>
-          </div>
-          <h3>Inventory Management</h3>
-          <p>Track inventory with real-time updates and automated stock alerts</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="400" data-service="9" data-video="Resource/.mp4">
-          <div class="service-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3>Call Center Setup</h3>
-          <p>Optimize customer support with scalable call center solutions</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="450" data-service="10" data-video="Resource/10.mp4">
-          <div class="service-icon">
-            <i class="fas fa-truck"></i>
-          </div>
-          <h3>Delivery Management</h3>
-          <p>Manage deliveries with secure tracking and optimized logistics</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        
-        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="500" data-service="11" data-video="Resource/3.mp4">
-          <div class="service-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Data Analysis</h3>
-          <p>Leverage data with advanced analytics and predictive insights</p>
-          <div class="service-arrow">
-            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials-section">
+  <!-- SECTION 2: CASHIER REAL SPEED & TERMINAL UI -->
+  <section id="cashier" class="section section-white">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Client Success</span>
-        <h2 class="section-title">What Our <span class="gradient-text">Clients Say</span></h2>
-        <p class="section-subtitle">Real stories from real businesses</p>
+      <div class="section-header">
+        <span class="section-pill">شاشة البيع ونقاط الكاشير</span>
+        <h2 class="section-title">واجهة بيع سريعة يتعلمها موظفك في ربع ساعة</h2>
+        <p class="section-desc">صممت واجهة الكاشير لتتحمل أقصى درجات الضغط في ساعات الذروة، باللمس أو لوحة المفاتيح والباركود.</p>
       </div>
-      
-      <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="100">
-        <div class="testimonial-track">
-          <div class="testimonial-card glass-card active">
-            <div class="testimonial-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+
+      <div class="two-col-layout">
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon-box">⚡</div>
+            <div class="feature-content">
+              <h4>سرعة استجابة فورية (أقل من 150 ملي ثانية)</h4>
+              <p>بمجرد تمرير الباركود، يظهر الصنف وسعره وصورته دون أي تأخير، مما يمنع تكدس الزبائن في الطوابير.</p>
             </div>
-            <p class="testimonial-text">"Foundix transformed our business operations completely. And let them remain an organized and complete work for custody, equipment repair, contracts, and very organized businesses"</p>
-            <div class="testimonial-author">
-              <img src="Resource/logo.png" alt="Little Kingdom Egypt" loading="lazy">
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon-box">💳</div>
+            <div class="feature-content">
+              <h4>طرق دفع متعددة ومرنة في نفس الفاتورة</h4>
+              <p>يقبل الكاشير الدفع نقداً، بالبطاقات البنكية، بالمحافظ الإلكترونية، أو بالآجل مسجلاً على حساب العميل.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon-box">🔒</div>
+            <div class="feature-content">
+              <h4>تقفيل الشيفت والوردية بأمان مطلق</h4>
+              <p>حساب دقيق لمحتويات درج النقدية ومقارنة مبيعات الكاش مع المبيعات الفعلية، لمنع أي تلاعب أو عجز.</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Cashier Window Mockup -->
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <span>FOUNDIX POS // Terminal #01 (شاشة بيع حقيقية)</span>
+            <span style="color:#34d399;">● وضع أوفلاين 72h نشط</span>
+          </div>
+          <div class="terminal-body">
+            <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px; display:flex; justify-content:space-between;">
+              <span>فاتورة رقم: <strong>#1084</strong></span>
+              <span>كاشير: محمد خليل (الوردية الأولى)</span>
+            </div>
+
+            <div class="bill-row">
               <div>
-                <h4>Little Kingdom Egypt</h4>
-                <p>Business Partner</p>
+                <strong style="color:var(--text-dark);">مسحوق غسيل أوتوماتيك 3 كجم</strong>
+                <div><span class="code-badge">6221049281014</span> · 1 عبوة × 185.00 ج.م</div>
               </div>
+              <strong style="font-family:'Plus Jakarta Sans', monospace;">185.00 ج.م</strong>
             </div>
-          </div>
-          
-          <div class="testimonial-card glass-card">
-            <div class="testimonial-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">"The transaction with the company and the HR team was at the highest level and system"</p>
-            <div class="testimonial-author">
-              <img src="Resource/logo_2.jpg" alt="DSG" loading="lazy">
+
+            <div class="bill-row">
               <div>
-                <h4>DSG</h4>
-                <p>HR Partner</p>
+                <strong style="color:var(--text-dark);">جبنة رومي قديمة وسط (ميزان)</strong>
+                <div><span class="code-badge">2008421004505</span> · 0.450 كجم × 210.00 ج.م</div>
               </div>
+              <strong style="font-family:'Plus Jakarta Sans', monospace;">94.50 ج.م</strong>
             </div>
-          </div>
-          
-          <div class="testimonial-card glass-card">
-            <div class="testimonial-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">"As a growing startup, Foundix gave us enterprise-level tools at an affordable price. Their platform scaled perfectly with our growth."</p>
-            <div class="testimonial-author">
-              <img src="Resource/Logo_3.jpg" alt="Pikachu" loading="lazy">
+
+            <div class="bill-row">
               <div>
-                <h4>Pikachu</h4>
-                <p>Startup Founder</p>
+                <strong style="color:var(--text-dark);">صابون سائل ديتول مركز (صب باللتر)</strong>
+                <div><span class="code-badge">2001452017502</span> · 1.750 لتر × 28.00 ج.م</div>
+              </div>
+              <strong style="font-family:'Plus Jakarta Sans', monospace;">49.00 ج.م</strong>
+            </div>
+
+            <div style="background:var(--bg-light); padding:12px; border-radius:6px; margin-top:14px; font-size:12.5px; border:1px solid var(--border-light);">
+              <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                <span style="color:var(--text-muted);">المجموع قبل الضريبة:</span>
+                <span style="font-family:'Plus Jakarta Sans', monospace;">288.16 ج.م</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                <span style="color:var(--text-muted);">ضريبة القيمة المضافة ETA (14%):</span>
+                <span style="font-family:'Plus Jakarta Sans', monospace;">40.34 ج.م</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-weight:800; font-size:15px; color:var(--text-dark); border-top:1px solid var(--border-light); padding-top:6px;">
+                <span>الإجمالي النهائي المطلوب:</span>
+                <span style="font-family:'Plus Jakarta Sans', monospace; color:var(--primary);">328.50 ج.م</span>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="slider-controls">
-          <button class="slider-btn prev-btn" aria-label="Previous testimonial">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="slider-dots"></div>
-          <button class="slider-btn next-btn" aria-label="Next testimonial">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
       </div>
     </div>
   </section>
-  
 
-  
-  <!-- FAQ Section -->
-  <section id="faq" class="faq-section">
+  <!-- SECTION 3: TRUE OFFLINE FIRST -->
+  <section id="offline" class="section">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Got Questions?</span>
-        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
-        <p class="section-subtitle">Everything you need to know about Foundix</p>
+      <div class="section-header">
+        <span class="section-pill">معمارية الاستقرار</span>
+        <h2 class="section-title">انقطاع الإنترنت مش هيوقفك ثانية واحدة (72h Offline)</h2>
+        <p class="section-desc">الراوتر فصل أو كابل التليفون اتقطع؟ الكاشير والطباعة مستمرين بدون توقف بأمان تام.</p>
       </div>
-      
-      <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="faq-item glass-card">
-          <button class="faq-question">
-            <span>What is Foundix?</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Foundix is an all-in-one business management platform that brings together HR, IT, Accounting, Quality Control, Design, Marketing, Sales, Inventory, Call Center, and more into a single, unified solution.</p>
-          </div>
+
+      <div class="two-col-layout">
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow-md);">
+          <h4 style="font-size:18px; font-weight:800; color:var(--text-dark); margin-bottom:12px;">
+            كيف يحميك النظام من انقطاع الإنترنت؟
+          </h4>
+          <p style="font-size:14px; color:var(--text-body); line-height:1.7; margin-bottom:18px;">
+            النظام لا يعتمد على تحميل صفحات من الويب أثناء الفاتورة. قاعدة البيانات مخزنة ومشفرة محلياً على جهاز الكاشير (IndexedDB / SQLite)، مما يضمن:
+          </p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:var(--text-body);">
+            <li>✓ استمرار البيع والطباعة وإصدار الإيصالات لمدة 72 ساعة متواصلة.</li>
+            <li>✓ عدم فقدان أي فاتورة؛ كل عملية تأخذ معرفاً محلياً مشفراً (UUID).</li>
+            <li>✓ مزامنة سحابية تلقائية فور عودة الإنترنت دون أي تكرار أو تعارض مالي.</li>
+          </ul>
         </div>
-        
-        <div class="faq-item glass-card">
-          <button class="faq-question">
-            <span>How does pricing work?</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>We offer flexible pricing plans based on your team size and needs. You can start with our Starter plan and upgrade as you grow. All plans include a 14-day free trial with no credit card required.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item glass-card">
-          <button class="faq-question">
-            <span>Can I integrate Foundix with other tools?</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Yes! Foundix offers seamless integrations with popular tools and platforms. Our Professional and Enterprise plans include custom integration support.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item glass-card">
-          <button class="faq-question">
-            <span>Is my data secure?</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Absolutely. We use enterprise-grade encryption, regular security audits, and comply with international data protection standards to keep your data safe.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item glass-card">
-          <button class="faq-question">
-            <span>Do you offer customer support?</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Yes! We provide email support for all plans, priority support for Professional plans, and 24/7 dedicated support for Enterprise customers.</p>
-          </div>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow-md);">
+          <span style="font-size:12px; font-weight:700; color:var(--amber); background:#fef3c7; padding:2px 10px; border-radius:var(--radius-pill); display:inline-block; margin-bottom:12px;">
+            واقع السوق التجاري المصري
+          </span>
+          <h4 style="font-size:17px; font-weight:800; color:var(--text-dark); margin-bottom:10px;">
+            الفرق بين برنامج الويب العادي وبين FOUNDIX:
+          </h4>
+          <p style="font-size:13.5px; color:var(--text-body); line-height:1.7;">
+            معظم البرامج السحابية عبارة عن "صفحة ويب"، لو النت ضعف أو فصل الراوتر، الشاشة بتتجمد والزبائن بتمشي.<br><br>
+            مع <strong>FOUNDIX</strong>، البرنامج يمتلك محركاً محلياً مستقلاً؛ الكاشير لا يشعر إطلاقاً بفصل الإنترنت، ويتابع البيع بنفس السرعة (142ms).
+          </p>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- Careers Section -->
-  <section class="careers-section">
+
+  <!-- SECTION 4: HARDWARE COMPATIBILITY MATRIX -->
+  <section id="hardware" class="section section-white">
     <div class="container">
-      <div class="careers-content glass-card" data-aos="zoom-in">
-        <div class="careers-text">
-          <span class="section-label">Join Our Team</span>
-          <h2>Build Your Career at <span class="gradient-text">Foundix</span></h2>
-          <p>We're always looking for talented individuals who are passionate about innovation and excellence. Join us in shaping the future of business management.</p>
-          <a href="#contact" class="btn btn-primary">
-            <span>View Open Positions</span>
-            <i class="fas fa-briefcase"></i>
-          </a>
+      <div class="section-header">
+        <span class="section-pill">الأجهزة والعتاد المدعوم</span>
+        <h2 class="section-title">التوافق مع الأجهزة المتداولة في السوق المصري</h2>
+        <p class="section-desc">لا حاجة لشراء أجهزة جديدة باهظة؛ يعمل النظام مع أجهزتك الحالية المتوفرة في محلك:</p>
+      </div>
+
+      <table class="hardware-table">
+        <thead>
+          <tr>
+            <th>نوع العتاد</th>
+            <th>العلامات والموديلات الشائعة في مصر</th>
+            <th>طريقة الربط</th>
+            <th>الحالة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>موازين الباركود الإلكترونية</strong></td>
+            <td>CAS (CL5200, ER Plus), Dibal (D-900), Rongta (RLS1000), Bizerba</td>
+            <td>EAN-13 Prefix 20 / 21 Barcode</td>
+            <td><span class="check-green">✓ متوافق 100%</span></td>
+          </tr>
+          <tr>
+            <td><strong>طابعات الإيصالات الحرارية</strong></td>
+            <td>Xprinter (XP-Q200, XP-N160M), EPSON (TM-T20), Bixolon, Sunmi</td>
+            <td>USB, Network LAN, Bluetooth (58/80mm)</td>
+            <td><span class="check-green">✓ متوافق 100%</span></td>
+          </tr>
+          <tr>
+            <td><strong>شاشات وأجهزة الكاشير</strong></td>
+            <td>شاشات اللمس Touch POS All-in-One, Sunmi (T2, D2s), أي لابتوب أو كمبيوتر</td>
+            <td>Windows 10/11, Android 8+, Chrome</td>
+            <td><span class="check-green">✓ متوافق 100%</span></td>
+          </tr>
+          <tr>
+            <td><strong>قوارئ الباركود (Scanners)</strong></td>
+            <td>Honeywell, Datalogic, Zebra, القوارئ اللاسلكية والسلكية 1D &amp; 2D QR</td>
+            <td>USB HID Keyboard Emulation / Bluetooth</td>
+            <td><span class="check-green">✓ متوافق 100%</span></td>
+          </tr>
+          <tr>
+            <td><strong>أدراج النقدية (Cash Drawers)</strong></td>
+            <td>أدراج النقدية 4 و 5 خانات ذات فتحة RJ11 المربوطة بالطابعة</td>
+            <td>فتح تلقائي فور طباعة الفاتورة (RJ11 Kick)</td>
+            <td><span class="check-green">✓ متوافق 100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PRICING TIERS -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-pill">استثمار بالجنيه المصري</span>
+        <h2 class="section-title">باقات اشتراك واضحة بدون أي تكاليف خفية</h2>
+        <p class="section-desc" style="margin:0 auto;">اشتراك ثابت ومريح بالجنيه المصري دون تقلبات سعر الصرف، مع شهرين مجاناً عند السداد السنوي:</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter Tier -->
+        <div class="pricing-card">
+          <div class="tier-name">باقة البداية والتجزئة</div>
+          <div class="tier-desc">لمحلات البقالة والتجزئة والصبانات الفردية (كاشير واحد).</div>
+          <div class="tier-price-val">650 <span>ج.م / شهرياً</span></div>
+          <div class="tier-annual-note">أو 6,500 ج.م سنوياً (شهران مجاناً)</div>
+          <ul class="tier-features-list">
+            <li>✓ كاشير ونقطة بيع واحدة (1 POS)</li>
+            <li>✓ العمل المستقل 72 ساعة بدون إنترنت</li>
+            <li>✓ قراءة باركود المنتجات القياسي</li>
+            <li>✓ البيع بالكسور واللتر (حتى خانتين)</li>
+            <li>✓ جاهزية منظومة الإيصال الضريبي ETA</li>
+            <li>✓ تقارير مبيعات وجرد أرباح أساسية</li>
+          </ul>
+          <a href="#cta" class="btn btn-secondary" style="width:100%;">طلب باقة البداية</a>
         </div>
-        <div class="careers-visual">
-          <div class="floating-icon" style="--delay: 0s">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <div class="floating-icon" style="--delay: 0.5s">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <div class="floating-icon" style="--delay: 1s">
-            <i class="fas fa-users"></i>
-          </div>
+
+        <!-- Pro Tier (Popular) -->
+        <div class="pricing-card popular">
+          <span class="popular-tag">الأكثر طلباً للأنشطة</span>
+          <div class="tier-name">باقة السوبرماركت والمنظفات</div>
+          <div class="tier-desc">للسوبرماركت ومصانع ومحلات المنظفات ذات الموازين والصب.</div>
+          <div class="tier-price-val">1,450 <span>ج.م / شهرياً</span></div>
+          <div class="tier-annual-note">أو 14,500 ج.م سنوياً (شهران مجاناً + تدريب كاشير)</div>
+          <ul class="tier-features-list">
+            <li>✓ حتى 3 نقاط بيع متزامنة (3 POS)</li>
+            <li>✓ محرك موازين الباركود الكامل (Prefix 20 / 21)</li>
+            <li>✓ دقة بيع السوائل والصب حتى 3 خانات (0.001L)</li>
+            <li>✓ ربط مباشر وتوليد إيصالات و QR معتمد</li>
+            <li>✓ دفتر حركة المخزون اللحظي (Stock Ledger)</li>
+            <li>✓ حسابات الموردين والأجل والمصروفات</li>
+            <li>✓ تقارير أرباح فورية من الموبايل</li>
+          </ul>
+          <a href="#cta" class="btn btn-primary" style="width:100%;">اختيار باقة السوبرماركت والمنظفات</a>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div class="pricing-card">
+          <div class="tier-name">باقة السلاسل والمصانع</div>
+          <div class="tier-desc">لسلاسل الفروع، مصانع التعبئة، ومستودعات التوزيع الكبرى.</div>
+          <div class="tier-price-val">2,950 <span>ج.م / شهرياً</span></div>
+          <div class="tier-annual-note">أو 29,500 ج.م سنوياً (شهران مجاناً + تركيب ميداني)</div>
+          <ul class="tier-features-list">
+            <li>✓ فروع ونقاط بيع غير محدودة (Unlimited)</li>
+            <li>✓ ربط موازين شبكية وميزان طبالي</li>
+            <li>✓ إدارة خلطات التصنيع وتحويلات المخازن</li>
+            <li>✓ ربط مركزي للضرائب لجميع الفروع معاً</li>
+            <li>✓ صلاحيات مستخدمين وأدوار مخصصة</li>
+            <li>✓ مدير حساب ودعم فني ميداني 24/7</li>
+          </ul>
+          <a href="#cta" class="btn btn-secondary" style="width:100%;">تواصل مع فريق المشروعات</a>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
+
+  <!-- SECTION 6: FAQ -->
+  <section id="faq" class="section section-white">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Contact <span class="gradient-text">Us</span></h2>
-        <p class="section-subtitle">Let's discuss how Foundix can transform your business</p>
+      <div class="section-header">
+        <span class="section-pill">إجابات مباشرة</span>
+        <h2 class="section-title">الأسئلة الشائعة من أصحاب الأنشطة التجارية</h2>
+        <p class="section-desc">إجابات عملية تطمئن صاحب العمل على سير التشغيل اليومي:</p>
       </div>
-      
-      <div class="contact-grid">
-        <div class="contact-info" data-aos="fade-right">
-          <div class="contact-card glass-card">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Location</h3>
-              <p>Giza, Egypt</p>
-            </div>
-          </div>
-          
-          <div class="contact-card glass-card">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Email</h3>
-              <a href="mailto:foundix.egypt@gmail.com">foundix.egypt@gmail.com</a>
-            </div>
-          </div>
-          
-          <div class="contact-card glass-card">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Phone</h3>
-              <a href="tel:+201020005163">+20 10 20005163</a>
-            </div>
-          </div>
-          
-          <div class="contact-social">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-              <a href="https://facebook.com/foundix" target="_blank" rel="noopener" class="social-btn facebook" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://instagram.com/foundix.Egypt" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://wa.me/201020005163" target="_blank" rel="noopener" class="social-btn whatsapp" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </div>
-          </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>هل أجهزتي الحالية في المحل صالحة لتشغيل FOUNDIX؟</h4>
+          <p>نعم بنسبة 99%. صُمم النظام ليعمل على أي كمبيوتر شخصي، لابتوب، أو شاشة كاشير تعمل بنظام ويندوز أو أندرويد بذاكرة 2GB فقط، ومتوافق مع كافة طابعات الإيصالات الحرارية وقوارئ الباركود وموازين السوق المتداولة.</p>
         </div>
-        
-        <div class="contact-form-wrapper" data-aos="fade-left">
-          <form class="contact-form glass-card">
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="form-group">
-              <input type="email" placeholder="Your Email" required>
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="form-group">
-              <input type="tel" placeholder="Your Phone">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="form-group">
-              <textarea placeholder="Your Message" rows="5" required></textarea>
-              <i class="fas fa-comment"></i>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              <span>Send Message</span>
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
+
+        <div class="faq-item">
+          <h4>كيف يتم نقل بيانات أصنافي وأسعاري القديمة؟</h4>
+          <p>يتولى فريق الدعم الفني نقل واستيراد كافة بيانات أصنافك وأسعارك القديمة من شيت إكسيل أو من برنامجك السابق في خلال 15 دقيقة فقط وبدون إدخال يدوي صنفاً تلو الآخر.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>ماذا يحدث عند انقطاع الإنترنت أثناء فتح الوردية؟</h4>
+          <p>يستمر الكاشير في البيع والطباعة وإصدار الإيصالات لمدة 72 ساعة متواصلة دون توقف ثانية واحدة، وعند عودة الاتصال تتزامن العمليات تلقائياً في الخلفية بترتيب زمني يمنع أي فقدان أو تكرار.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>كم يستغرق تدريب موظف الكاشير على العمل؟</h4>
+          <p>صُممت الشاشة بواجهة عربية واضحة ومباشرة تخلو من النوافذ المعقدة. يستوعب موظف الكاشير طريقة إتمام الفاتورة وإلغاء الأصناف وتطبيق الخصم وتقفيل الشيفت في أقل من ربع ساعة تدريب عملي.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- SECTION 7: FINAL CALL TO ACTION -->
+  <div class="container">
+    <div id="cta" class="cta-banner">
+      <span style="font-family:'Geist Mono', monospace; font-size:12px; color:#93c5fd; letter-spacing:1.5px; font-weight:700;">// LIMITED FOUNDING PARTNERS PROGRAM</span>
+      <h2>انضم إلى برنامج التجار والشركاء المؤسسين</h2>
+      <p>
+        احجز نسختك التجريبية اليوم، واستفد من اشتراك مجاني طوال فترة الإطلاق التجريبي، مع دعم وتدريب ميداني وتثبيت باقة سعرية تفضيلية مدى الحياة.
+      </p>
+
+      <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <a href="https://foundix.net" target="_blank" class="btn btn-primary btn-lg" style="background:#3b82f6;">زيارة الموقع الرسمي: foundix.net</a>
+        <button onclick="window.print()" class="btn btn-secondary btn-lg">طباعة وثيقة المواصفات (PDF)</button>
+      </div>
+
+      <div style="margin-top:22px; font-size:12.5px; color:#94a3b8;">
+        📞 فريق المبيعات والاستشارات الفنية: جاهز للزيارات الميدانية ومعاينة أجهزتكم الحالية
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <img src="Resource/logo_foundix.jpg" alt="Foundix Logo" loading="lazy">
-            <span>Foundix</span>
-          </div>
-          <p>Foundation meets growth. Your all-in-one business management platform.</p>
-          <div class="footer-social">
-            <a href="https://facebook.com/foundix" target="_blank" rel="noopener" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://instagram.com/foundix.Egypt" target="_blank" rel="noopener" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/201020005163" target="_blank" rel="noopener" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#team">Our Team</a></li>
-            <li><a href="#careers">Careers</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#services">HR Management</a></li>
-            <li><a href="#services">IT Infrastructure</a></li>
-            <li><a href="#services">Accounting</a></li>
-            <li><a href="#services">Marketing</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">Support</a></li>
-          </ul>
-        </div>
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:var(--text-dark);">FOUNDIX (فاوندكس)</strong> — منظومة إدارة الأعمال ونقاط البيع الذكية (Smart ERP &amp; POS).<br>
+        <span style="font-size:11.5px;">جميع الحقوق محفوظة © 2026 | جمهورية مصر العربية 🇪🇬</span>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Foundix. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
-        </div>
+      <div style="font-family:'Geist Mono', monospace; font-size:12px; color:var(--text-muted);">
+        foundix.net // Foundation - Meets - Growth
       </div>
     </div>
   </footer>
-  
-  <!-- Service Modal -->
-  <div class="modal" id="serviceModal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content glass-card">
-      <button class="modal-close" aria-label="Close modal">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="modal-body" id="modalBody"></div>
-    </div>
-  </div>
-  
-  <!-- Floating CTA -->
-  <a href="https://wa.me/201020005163" class="floating-cta" id="floatingCta" target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i>
-    <span>Chat with us</span>
-  </a>
-  
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="script.js"></script>
-  <script>
-  (function () {
-    // ── Config ───────────────────────────────────────────────────────────────
-    const PDF_URL = 'Resource/FOUNDIX_Corporate_Portfolio.pdf';
 
-    if (typeof pdfjsLib === 'undefined') {
-      console.error('PDF.js failed to load');
-      showError();
-      return;
-    }
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    let pdfDoc      = null;
-    let zoomScale   = 1;
-    let fitScale    = 1;
-    let totalPages  = 0;
-    let sidebarOpen = window.innerWidth > 540;
-
-    const scrollArea      = document.getElementById('pdfScrollArea');
-    const pagesContainer  = document.getElementById('pdfPagesContainer');
-    const thumbnailsEl    = document.getElementById('pdfThumbnails');
-    const loadingEl       = document.getElementById('pdfLoading');
-    const errorEl         = document.getElementById('pdfError');
-    const pageInput       = document.getElementById('pdfPageInput');
-    const totalEl         = document.getElementById('pdfTotal');
-    const zoomValEl       = document.getElementById('pdfZoomVal');
-    const readBar         = document.getElementById('pdfReadBar');
-    const sidebar         = document.getElementById('pdfSidebar');
-
-    function showError() {
-      if (loadingEl) loadingEl.style.display = 'none';
-      if (errorEl)   errorEl.style.display   = 'flex';
-    }
-
-    // ── Fit scale ────────────────────────────────────────────────────────────
-    function computeFitScale(viewport) {
-      const available = scrollArea.clientWidth - 40;
-      return Math.max(available / viewport.width, 0.3);
-    }
-
-    // ── Render one page ──────────────────────────────────────────────────────
-    async function renderPageToWrapper(pageNum, scale) {
-      const page     = await pdfDoc.getPage(pageNum);
-      const viewport = page.getViewport({ scale });
-
-      const wrapper = document.createElement('div');
-      wrapper.className  = 'pdf-page-wrapper';
-      wrapper.dataset.page = pageNum;
-
-      const canvas  = document.createElement('canvas');
-      const dpr     = window.devicePixelRatio || 1;
-      canvas.width  = viewport.width  * dpr;
-      canvas.height = viewport.height * dpr;
-      canvas.style.width  = viewport.width  + 'px';
-      canvas.style.height = viewport.height + 'px';
-
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-
-      const label = document.createElement('div');
-      label.className   = 'pdf-page-num';
-      label.textContent = pageNum;
-
-      wrapper.appendChild(canvas);
-      wrapper.appendChild(label);
-
-      await page.render({ canvasContext: ctx, viewport }).promise;
-      return wrapper;
-    }
-
-    // ── Render thumbnail ─────────────────────────────────────────────────────
-    async function renderThumb(pageNum) {
-      const page     = await pdfDoc.getPage(pageNum);
-      const viewport = page.getViewport({ scale: 0.18 });
-
-      const thumb = document.createElement('div');
-      thumb.className    = 'pdf-thumb';
-      thumb.dataset.page = pageNum;
-
-      const canvas  = document.createElement('canvas');
-      canvas.width  = viewport.width;
-      canvas.height = viewport.height;
-
-      const label = document.createElement('span');
-      label.textContent = pageNum;
-
-      thumb.appendChild(canvas);
-      thumb.appendChild(label);
-      thumbnailsEl.appendChild(thumb);
-
-      await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-      thumb.addEventListener('click', () => scrollToPage(pageNum));
-    }
-
-    // ── Scroll to page ───────────────────────────────────────────────────────
-    function scrollToPage(num) {
-      const target = pagesContainer.querySelector('[data-page="' + num + '"]');
-      if (target) scrollArea.scrollTo({ top: target.offsetTop - 12, behavior: 'smooth' });
-    }
-
-    // ── Update active page on scroll ─────────────────────────────────────────
-    function updateActivePage() {
-      const scrollTop = scrollArea.scrollTop;
-      const wrappers  = pagesContainer.querySelectorAll('.pdf-page-wrapper');
-      let active = 1;
-      wrappers.forEach(function(w) {
-        if (w.offsetTop - 60 <= scrollTop) active = parseInt(w.dataset.page);
-      });
-      pageInput.value = active;
-
-      const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
-      readBar.style.width = (maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0) + '%';
-
-      thumbnailsEl.querySelectorAll('.pdf-thumb').forEach(function(t) {
-        t.classList.toggle('active', parseInt(t.dataset.page) === active);
-      });
-      const activeThumb = thumbnailsEl.querySelector('.pdf-thumb.active');
-      if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    }
-
-    // ── Load all pages ───────────────────────────────────────────────────────
-    async function loadAllPages() {
-      pagesContainer.innerHTML = '';
-      const firstPage = await pdfDoc.getPage(1);
-      const baseVP    = firstPage.getViewport({ scale: 1 });
-      fitScale        = computeFitScale(baseVP);
-      zoomScale       = 1;
-      updateZoomLabel();
-
-      for (let i = 1; i <= totalPages; i++) {
-        const wrapper = await renderPageToWrapper(i, fitScale * zoomScale);
-        pagesContainer.appendChild(wrapper);
-      }
-    }
-
-    // ── Re-render all pages ──────────────────────────────────────────────────
-    async function reRenderAll() {
-      const wrappers = pagesContainer.querySelectorAll('.pdf-page-wrapper');
-      for (let i = 0; i < wrappers.length; i++) {
-        const pageNum  = i + 1;
-        const page     = await pdfDoc.getPage(pageNum);
-        const viewport = page.getViewport({ scale: fitScale * zoomScale });
-        const canvas   = wrappers[i].querySelector('canvas');
-        const dpr      = window.devicePixelRatio || 1;
-        canvas.width   = viewport.width  * dpr;
-        canvas.height  = viewport.height * dpr;
-        canvas.style.width  = viewport.width  + 'px';
-        canvas.style.height = viewport.height + 'px';
-        const ctx = canvas.getContext('2d');
-        ctx.scale(dpr, dpr);
-        await page.render({ canvasContext: ctx, viewport }).promise;
-      }
-    }
-
-    function updateZoomLabel() {
-      zoomValEl.textContent = Math.round(zoomScale * 100) + '%';
-    }
-
-    // ── Init: try fetch first, fallback to direct load ───────────────────────
-    function initPDF() {
-      fetch(PDF_URL)
-        .then(function(res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.arrayBuffer();
-        })
-        .then(function(buffer) {
-          return pdfjsLib.getDocument({ data: buffer }).promise;
-        })
-        .catch(function() {
-          // fallback: direct URL (works on server, may fail on file://)
-          return pdfjsLib.getDocument(PDF_URL).promise;
-        })
-        .then(async function(doc) {
-          pdfDoc     = doc;
-          totalPages = doc.numPages;
-          totalEl.textContent = totalPages;
-          pageInput.max       = totalPages;
-
-          loadingEl.style.display = 'none';
-
-          await loadAllPages();
-
-          // render thumbnails one by one after pages are shown
-          for (let i = 1; i <= totalPages; i++) await renderThumb(i);
-
-          // init sidebar state
-          if (!sidebarOpen) sidebar.classList.add('hidden');
-        })
-        .catch(function(err) {
-          console.error('PDF load error:', err);
-          showError();
-        });
-    }
-
-    initPDF();
-
-    // ── Scroll ───────────────────────────────────────────────────────────────
-    scrollArea.addEventListener('scroll', updateActivePage, { passive: true });
-
-    // ── Page input ───────────────────────────────────────────────────────────
-    pageInput.addEventListener('change', function() {
-      const n = Math.min(Math.max(parseInt(this.value) || 1, 1), totalPages);
-      this.value = n;
-      scrollToPage(n);
-    });
-
-    // ── Prev / Next ──────────────────────────────────────────────────────────
-    document.getElementById('pdfPrev').addEventListener('click', function() {
-      const cur = parseInt(pageInput.value) || 1;
-      if (cur > 1) scrollToPage(cur - 1);
-    });
-    document.getElementById('pdfNext').addEventListener('click', function() {
-      const cur = parseInt(pageInput.value) || 1;
-      if (cur < totalPages) scrollToPage(cur + 1);
-    });
-
-    // ── Zoom ─────────────────────────────────────────────────────────────────
-    document.getElementById('pdfZoomIn').addEventListener('click', async function() {
-      if (zoomScale >= 3) return;
-      zoomScale = Math.round((zoomScale + 0.25) * 100) / 100;
-      updateZoomLabel();
-      await reRenderAll();
-    });
-    document.getElementById('pdfZoomOut').addEventListener('click', async function() {
-      if (zoomScale <= 0.5) return;
-      zoomScale = Math.round((zoomScale - 0.25) * 100) / 100;
-      updateZoomLabel();
-      await reRenderAll();
-    });
-    document.getElementById('pdfFitWidth').addEventListener('click', async function() {
-      zoomScale = 1;
-      updateZoomLabel();
-      await reRenderAll();
-    });
-
-    // ── Sidebar toggle ───────────────────────────────────────────────────────
-    document.getElementById('pdfToggleSidebar').addEventListener('click', function() {
-      sidebarOpen = !sidebarOpen;
-      sidebar.classList.toggle('hidden', !sidebarOpen);
-      this.classList.toggle('active', sidebarOpen);
-    });
-
-    // ── Touch swipe ──────────────────────────────────────────────────────────
-    let touchY = 0;
-    scrollArea.addEventListener('touchstart', function(e) { touchY = e.touches[0].clientY; }, { passive: true });
-    scrollArea.addEventListener('touchend', function(e) {
-      const diff = touchY - e.changedTouches[0].clientY;
-      if (Math.abs(diff) > 60) {
-        const cur = parseInt(pageInput.value) || 1;
-        if (diff > 0 && cur < totalPages) scrollToPage(cur + 1);
-        else if (diff < 0 && cur > 1)     scrollToPage(cur - 1);
-      }
-    }, { passive: true });
-
-    // ── Resize ───────────────────────────────────────────────────────────────
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(async function() {
-        if (!pdfDoc) return;
-        const firstPage = await pdfDoc.getPage(1);
-        fitScale = computeFitScale(firstPage.getViewport({ scale: 1 }));
-        await reRenderAll();
-      }, 300);
-    });
-
-  })();
-  </script>
 </body>
 </html>
