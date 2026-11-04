@@ -966,7 +966,7 @@
         font-size: 12px;
         font-weight: 800;
       }
-      .plan h3 {
+      .plan h4 {
         margin: 0 0 6px;
         font-size: 18px;
         font-weight: 800;
@@ -1123,6 +1123,382 @@
         outline-offset: 3px;
         border-radius: 4px;
       }
+      .hero-photo video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-chip {
+        position: absolute;
+        z-index: 1;
+        inset-block-start: 18px;
+        inset-inline-start: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+        box-shadow: 0 8px 22px rgba(12, 28, 24, 0.14);
+      }
+      .hero-chip::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #1fb88a;
+        box-shadow: 0 0 0 4px rgba(31, 184, 138, 0.22);
+      }
+      .video-toggle {
+        position: absolute;
+        z-index: 2;
+        inset-block-start: 14px;
+        inset-inline-end: 14px;
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(12, 28, 24, 0.55);
+        color: #fff;
+        cursor: pointer;
+      }
+      .video-toggle:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 2px;
+      }
+      .video-toggle svg {
+        width: 14px;
+        height: 14px;
+      }
+      .video-toggle .icon-play,
+      .video-toggle[aria-pressed="true"] .icon-pause {
+        display: none;
+      }
+      .video-toggle[aria-pressed="true"] .icon-play {
+        display: block;
+      }
+      .sector-tabs {
+        display: none;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+      .js .sector-tabs {
+        display: flex;
+      }
+      .sector-tab {
+        padding: 9px 16px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--body);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .sector-tab[aria-selected="true"] {
+        border-color: var(--green);
+        background: var(--green);
+        color: #fff;
+      }
+      .sector-tab:focus-visible {
+        outline: 3px solid var(--green);
+        outline-offset: 2px;
+      }
+      .plan-panel + .plan-panel {
+        margin-top: 34px;
+      }
+      .js .plan-panel + .plan-panel {
+        margin-top: 0;
+      }
+      .plan-panel-title {
+        margin: 0 0 18px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .js .plan-panel-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+      .plan-name {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--green);
+        font:
+          800 12px "Manrope",
+          sans-serif;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .plan-limits {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .plan-common {
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .plan-common strong {
+        color: var(--ink);
+      }
+      .integration-grid,
+      .soon-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .integration {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+      .integration h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .integration > p {
+        margin: 0 0 16px;
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .integration-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .integration-list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.6;
+      }
+      .status {
+        flex: 0 0 auto;
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .status-live {
+        background: var(--green-soft);
+        color: var(--green-dark);
+      }
+      .status-pilot {
+        background: #fff3d6;
+        color: #7a5100;
+      }
+      .status-soon {
+        background: var(--sand);
+        color: #625636;
+      }
+      .offline-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        gap: 40px;
+        align-items: center;
+      }
+      .offline-points {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .offline-points li {
+        padding: 15px 18px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+      }
+      .offline-points strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15px;
+      }
+      .offline-points span {
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.8;
+      }
+      .offline-timeline {
+        margin: 0;
+        padding: 10px 24px;
+        border-radius: var(--radius-lg);
+        background: var(--ink);
+        color: #fff;
+        box-shadow: var(--shadow);
+        list-style: none;
+      }
+      .timeline-step {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 15px 0;
+      }
+      .timeline-step + .timeline-step {
+        border-top: 1px dashed rgba(255, 255, 255, 0.16);
+      }
+      .timeline-time {
+        padding: 6px 0;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font:
+          800 12px "Manrope",
+          sans-serif;
+      }
+      .timeline-step.is-off .timeline-time {
+        background: #e9a23b;
+        color: #1b1404;
+      }
+      .timeline-step.is-sync .timeline-time {
+        background: #1fb88a;
+        color: #04221a;
+      }
+      .timeline-step strong {
+        display: block;
+        font-size: 14px;
+      }
+      .timeline-step span {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 12px;
+        line-height: 1.8;
+      }
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .step-card {
+        padding: 24px 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+      .step-num {
+        color: var(--green);
+        font:
+          800 30px/1 "Manrope",
+          sans-serif;
+      }
+      .step-card h3 {
+        margin: 12px 0 6px;
+        font-size: 17px;
+        font-weight: 800;
+      }
+      .step-card p {
+        margin: 0;
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .step-card small {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--green-soft);
+        color: var(--green-dark);
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .steps-cta {
+        margin-top: 24px;
+      }
+      .soon-card {
+        position: relative;
+        padding: 28px 26px;
+        border: 1px dashed #c9d6d0;
+        border-radius: var(--radius-lg);
+        background: linear-gradient(160deg, #fff, var(--green-soft));
+      }
+      .soon-card .status {
+        position: absolute;
+        inset-block-start: 24px;
+        inset-inline-end: 24px;
+      }
+      .soon-card h3 {
+        margin: 0 0 2px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .soon-en {
+        color: var(--muted);
+        font:
+          700 12px "Manrope",
+          sans-serif;
+        letter-spacing: 0.6px;
+      }
+      .soon-card p {
+        margin: 12px 0 14px;
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .soon-card ul {
+        display: grid;
+        gap: 7px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--ink);
+        font-size: 13px;
+      }
+      .soon-card li::before {
+        content: "◦";
+        margin-inline-end: 8px;
+        color: var(--green);
+        font-weight: 800;
+      }
+      @media (max-width: 980px) {
+        .steps-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .offline-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+      @media (max-width: 700px) {
+        .integration-grid,
+        .soon-grid,
+        .steps-grid {
+          grid-template-columns: 1fr;
+        }
+        .soon-card .status {
+          position: static;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+      }
       @media (max-width: 980px) {
         .nav-links,
         .nav-actions > .nav-cta {
@@ -1239,6 +1615,9 @@
         .nav-shell {
           gap: 8px;
         }
+        .trust-label {
+          white-space: normal;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         *,
@@ -1291,8 +1670,8 @@
           <ul class="nav-links">
             <li><a href="#sectors">الأنشطة</a></li>
             <li><a href="#operating-model">طريقة العمل</a></li>
-            <li><a href="#capabilities">قدرات المنصة</a></li>
-            <li><a href="#roles">حسب دورك</a></li>
+            <li><a href="#integrations">التكاملات</a></li>
+            <li><a href="#offline">بدون إنترنت</a></li>
             <li><a href="#pricing">الباقات</a></li>
           </ul>
         </nav>
@@ -1307,8 +1686,9 @@
             <summary aria-label="فتح قائمة التنقل">القائمة</summary>
             <nav class="mobile-menu" aria-label="التنقل على الهاتف">
               <a href="#sectors">الأنشطة</a><a href="#operating-model">طريقة العمل</a
-              ><a href="#capabilities">قدرات المنصة</a><a href="#roles">حسب دورك</a
-              ><a href="#pricing">الباقات</a
+              ><a href="#integrations">التكاملات</a><a href="#offline">بدون إنترنت</a
+              ><a href="#pricing">الباقات</a><a href="#get-started">خطوات البداية</a
+              ><a href="#coming-soon">قريبًا</a
               ><a class="mobile-menu-cta" href="https://app.foundix.net/register"
                 >ابدأ تجربتك المجانية</a
               >
@@ -1353,10 +1733,26 @@
           </div>
           <div
             class="system-visual"
-            aria-label="مشهد من بيئة بيع بالتجزئة"
+            aria-label="مشاهد من بيئات بيع مختلفة"
           >
             <figure class="hero-photo">
-              <img src="assets/unsplash-checkout.jpg" alt="موظفة تُنهي عملية بيع عند نقطة الدفع" fetchpriority="high" />
+              <video
+                id="hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/hero-poster.jpg"
+                aria-label="لقطات من البيع في سوبرماركت وكافيه: اختيار البضاعة، عرض المنتجات، الدفع، وتسليم الطلب"
+              >
+                <source src="assets/hero-loop.mp4" type="video/mp4" />
+              </video>
+              <span class="hero-chip">بيع، مخزون وتحصيل في دورة واحدة</span>
+              <button class="video-toggle" type="button" aria-pressed="false" aria-label="إيقاف الفيديو مؤقتًا">
+                <svg class="icon-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor" /><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor" /></svg>
+                <svg class="icon-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5-9-5.5Z" fill="currentColor" /></svg>
+              </button>
               <figcaption>من البيع تبدأ الصورة الكاملة.<small>المخزون، التشغيل والتحصيل ضمن دورة واحدة.</small></figcaption>
             </figure>
           </div>
@@ -1573,14 +1969,89 @@
           </div>
         </div>
       </section>
+      <section class="section" id="integrations">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">05 / التكاملات</span>
+            <h2>متصل بالمنظومات التي يعمل بها السوق.</h2>
+            <p>
+              الضرائب ووسائل الدفع ومنصات الطلب في مسار واحد مع البيع والمخزون. ما هو متاح اليوم واضح،
+              وما في الطريق معلن.
+            </p>
+          </div>
+          <div class="integration-grid">
+            <article class="integration">
+              <h3>المنظومة الضريبية</h3>
+              <p>إصدار الإيصال والفاتورة الإلكترونية وإرسالهما لمصلحة الضرائب من داخل نقطة البيع، مع متابعة حالة كل مستند.</p>
+              <ul class="integration-list">
+                <li>الإيصال الإلكتروني للمستهلك (B2C)<span class="status status-pilot">تجريبي</span></li>
+                <li>الفاتورة الإلكترونية للشركات (B2B)<span class="status status-pilot">تجريبي</span></li>
+                <li>شهادة وربط مستقل لكل جهاز كاشير<span class="status status-pilot">تجريبي</span></li>
+              </ul>
+            </article>
+            <article class="integration">
+              <h3>وسائل الدفع</h3>
+              <p>سجّل كل طريقة دفع داخل الوردية نفسها، واربط التحصيل الإلكتروني بحسابات العملاء.</p>
+              <ul class="integration-list">
+                <li>نقدي · بطاقة · محفظة · تحويل بنكي · آجل<span class="status status-live">متاح</span></li>
+                <li>كود فوري المرجعي لتحصيل الآجل<span class="status status-soon">قريبًا</span></li>
+                <li>بوابات الدفع الإلكتروني (Paymob · Geidea)<span class="status status-soon">قريبًا</span></li>
+              </ul>
+            </article>
+            <article class="integration">
+              <h3>منصات الطلب والبيع الإلكتروني</h3>
+              <p>استقبل طلبات المنصات على نفس الكاشير والمخزون بدل إعادة إدخالها يدويًا.</p>
+              <ul class="integration-list">
+                <li>منصة طلبات (Talabat)<span class="status status-pilot">تجريبي</span></li>
+                <li>المتاجر الإلكترونية (Shopify · WooCommerce)<span class="status status-soon">قريبًا</span></li>
+                <li>تطبيقات توصيل أخرى (elmenus وغيرها)<span class="status status-soon">قريبًا</span></li>
+              </ul>
+            </article>
+            <article class="integration">
+              <h3>شبكة Foundix للتجارة بين الشركات (B2B)</h3>
+              <p>طلبات شراء مباشرة بين المنشآت على المنصة: يرسل المشتري طلبه، ويصل للمورد جاهزًا، وتنعكس الكميات على مخزون الطرفين.</p>
+              <ul class="integration-list">
+                <li>طلبات شراء بين منشآت Foundix<span class="status status-soon">قريبًا</span></li>
+                <li>كتالوج الموردين وقوائم أسعارهم<span class="status status-soon">قريبًا</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section-white" id="offline">
+        <div class="container offline-grid">
+          <div>
+            <div class="section-head">
+              <span class="section-kicker">06 / العمل بدون إنترنت</span>
+              <h2>النت قطع؟ الكاشير يكمل البيع.</h2>
+              <p>
+                نقطة البيع تعمل محليًا على الجهاز، وترفع كل شيء تلقائيًا عند عودة الاتصال؛ بلا إعادة
+                إدخال وبلا فواتير ضائعة.
+              </p>
+            </div>
+            <ul class="offline-points">
+              <li><strong>البيع لا يتوقف</strong><span>الأصناف والأسعار محفوظة على الجهاز، فيكمل الكاشير المسح والطباعة كالمعتاد.</span></li>
+              <li><strong>ترقيم ضريبي سليم</strong><span>كل إيصال يأخذ رقمه التسلسلي من الجهاز نفسه، فلا تتكرر الأرقام ولا تنكسر السلسلة الضريبية.</span></li>
+              <li><strong>مزامنة تلقائية</strong><span>عند عودة الإنترنت تُرفع المبيعات بترتيبها، ويتحدث المخزون والحسابات، ويُرسل ما يلزم للضرائب.</span></li>
+              <li><strong>حتى 72 ساعة</strong><span>مصمم ليكمل أيام عمل كاملة بدون اتصال، مع حالة اتصال واضحة على الشاشة دائمًا.</span></li>
+            </ul>
+          </div>
+          <ol class="offline-timeline" aria-label="مثال على يوم عمل انقطع فيه الإنترنت">
+            <li class="timeline-step"><span class="timeline-time">09:00</span><div><strong>متصل</strong><span>كل فاتورة تُرفع لحظة إصدارها.</span></div></li>
+            <li class="timeline-step is-off"><span class="timeline-time">11:20</span><div><strong>انقطع الإنترنت</strong><span>يظهر التنبيه، ويكمل الكاشير البيع على الجهاز.</span></div></li>
+            <li class="timeline-step is-off"><span class="timeline-time">13:40</span><div><strong>37 فاتورة محفوظة محليًا</strong><span>بترقيم ضريبي متصل وطباعة عادية للعميل.</span></div></li>
+            <li class="timeline-step is-sync"><span class="timeline-time">14:05</span><div><strong>عاد الاتصال</strong><span>مزامنة تلقائية بالترتيب، والمخزون والتقارير محدّثة.</span></div></li>
+          </ol>
+        </div>
+      </section>
       <section class="section" id="pricing">
         <div class="container">
           <div class="section-head">
-            <span class="section-kicker">05 / باقات بالجنيه المصري</span>
-            <h2>اشتراك واضح، بلا تكاليف خفية.</h2>
+            <span class="section-kicker">07 / باقات بالجنيه المصري</span>
+            <h2>ثلاث باقات لكل نشاط، بلا تكاليف خفية.</h2>
             <p>
-              سعر ثابت بالجنيه المصري بعيدًا عن تقلبات سعر الصرف، مع شهرين مجانًا عند السداد
-              السنوي.
+              اختر نشاطك لترى ما تتضمنه كل باقة. السعر ثابت بالجنيه المصري بعيدًا عن تقلبات سعر الصرف،
+              مع شهرين مجانًا عند السداد السنوي.
             </p>
           </div>
           <div class="beta-note" role="note">
@@ -1590,54 +2061,307 @@
               ويثبت لك سعر باقتك التفضيلي بعد انتهاء التجربة.
             </p>
           </div>
-          <div class="plan-grid">
-            <article class="plan" aria-labelledby="plan-starter">
-              <h3 id="plan-starter">باقة البداية والتجزئة</h3>
-              <p class="plan-for">لمحلات البقالة والتجزئة والصبانات الفردية بكاشير واحد.</p>
-              <p class="plan-price"><strong>650</strong> ج.م / شهريًا</p>
-              <p class="plan-annual">أو 6,500 ج.م سنويًا (شهران مجانًا)</p>
-              <ul class="plan-features">
-                <li>نقطة بيع واحدة</li>
-                <li>العمل حتى 72 ساعة بدون إنترنت</li>
-                <li>باركود المنتجات القياسي</li>
-                <li>البيع بالكسور واللتر حتى خانتين</li>
-                <li>جاهزية الإيصال الإلكتروني (ETA)</li>
-                <li>تقارير مبيعات وجرد أساسية</li>
-              </ul>
-              <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+          <div class="sector-tabs" role="tablist" aria-label="اختر نشاطك">
+            <button class="sector-tab" type="button" role="tab" id="tab-retail" aria-controls="panel-retail" aria-selected="true">متاجر وسوبرماركت</button>
+            <button class="sector-tab" type="button" role="tab" id="tab-food" aria-controls="panel-food" aria-selected="false" tabindex="-1">مطاعم وكافيهات</button>
+            <button class="sector-tab" type="button" role="tab" id="tab-industry" aria-controls="panel-industry" aria-selected="false" tabindex="-1">ورش وتصنيع</button>
+            <button class="sector-tab" type="button" role="tab" id="tab-trade" aria-controls="panel-trade" aria-selected="false" tabindex="-1">توزيع وجملة</button>
+          </div>
+          <div class="plan-panel" id="panel-retail" role="tabpanel" aria-labelledby="tab-retail">
+            <h3 class="plan-panel-title">متاجر وسوبرماركت</h3>
+            <div class="plan-grid">
+                <article class="plan" aria-labelledby="plan-retail-essential">
+                  <span class="plan-name">Essential</span>
+                  <h4 class="plan-title" id="plan-retail-essential">الباقة الأساسية</h4>
+                  <p class="plan-for">لمحل أو ميني ماركت بكاشير واحد يبدأ رقمنة البيع والمخزون.</p>
+                  <p class="plan-limits">فرع واحد · حتى 5 مستخدمين</p>
+                  <p class="plan-price"><strong>650</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 6,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>كاشير سريع بالباركود والبحث</li>
+                    <li>أصناف ووحدات قياس وأسعار جملة وقطاعي</li>
+                    <li>مخزون الفرع والجرد والمرتجعات</li>
+                    <li>ورديات الكاشير وتقارير المبيعات</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+                <article class="plan plan-featured" aria-labelledby="plan-retail-professional">
+                  <span class="plan-tag">الأكثر طلبًا</span>
+                  <span class="plan-name">Professional</span>
+                  <h4 class="plan-title" id="plan-retail-professional">الباقة الاحترافية</h4>
+                  <p class="plan-for">للسوبرماركت ومحلات المنظفات ذات الموازين والبيع بالصب.</p>
+                  <p class="plan-limits">حتى 3 فروع · حتى 25 مستخدمًا</p>
+                  <p class="plan-price"><strong>1,450</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 14,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>باركود الموازين والبيع بالوزن والصب</li>
+                    <li>مخازن مستقلة وتحويلات بين المواقع</li>
+                    <li>المشتريات والموردون والأجل</li>
+                    <li>تنبيهات حد إعادة الطلب</li>
+                    <li>قيود محاسبية تلقائية للمبيعات والمخزون</li>
+                  </ul>
+                  <a class="button-primary" href="https://app.foundix.net/register"
+                    >ابدأ مجانًا <span aria-hidden="true">←</span></a
+                  >
+                </article>
+                <article class="plan" aria-labelledby="plan-retail-enterprise">
+                  <span class="plan-name">Enterprise</span>
+                  <h4 class="plan-title" id="plan-retail-enterprise">الباقة المؤسسية</h4>
+                  <p class="plan-for">لسلاسل الفروع ومستودعات التوزيع.</p>
+                  <p class="plan-limits">فروع ومستخدمون بلا حد</p>
+                  <p class="plan-price"><strong>2,950</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 29,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>فروع ونقاط بيع بلا حد</li>
+                    <li>ربط ضريبي لكل فرع وكل جهاز</li>
+                    <li>أدوار وصلاحيات مخصصة</li>
+                    <li>تقارير مجمعة على مستوى الشركة</li>
+                    <li>مدير حساب ودعم ميداني</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+            </div>
+          </div>
+          <div class="plan-panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food">
+            <h3 class="plan-panel-title">مطاعم وكافيهات</h3>
+            <div class="plan-grid">
+                <article class="plan" aria-labelledby="plan-food-essential">
+                  <span class="plan-name">Essential</span>
+                  <h4 class="plan-title" id="plan-food-essential">الباقة الأساسية</h4>
+                  <p class="plan-for">لكافيه أو مطعم صغير بنقطة طلب واحدة.</p>
+                  <p class="plan-limits">فرع واحد · حتى 5 مستخدمين</p>
+                  <p class="plan-price"><strong>650</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 6,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>شاشة طلبات سريعة باللمس</li>
+                    <li>إضافات وتعديلات على الأصناف (الحجم، السكر، الإضافات)</li>
+                    <li>وصفات تخصم المكونات من المخزون عند البيع</li>
+                    <li>ورديات وتقارير المبيعات</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+                <article class="plan plan-featured" aria-labelledby="plan-food-professional">
+                  <span class="plan-tag">الأكثر طلبًا</span>
+                  <span class="plan-name">Professional</span>
+                  <h4 class="plan-title" id="plan-food-professional">الباقة الاحترافية</h4>
+                  <p class="plan-for">للمطاعم والمخابز التي لها مطبخ ومخزن خامات.</p>
+                  <p class="plan-limits">حتى 3 فروع · حتى 25 مستخدمًا</p>
+                  <p class="plan-price"><strong>1,450</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 14,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>تكلفة الوصفة وهامش ربح كل صنف</li>
+                    <li>مخزن خامات مستقل وصرف للمطبخ</li>
+                    <li>المشتريات والموردون</li>
+                    <li>تسجيل الهالك والفاقد</li>
+                    <li>استقبال طلبات منصة طلبات (تجريبي)</li>
+                  </ul>
+                  <a class="button-primary" href="https://app.foundix.net/register"
+                    >ابدأ مجانًا <span aria-hidden="true">←</span></a
+                  >
+                </article>
+                <article class="plan" aria-labelledby="plan-food-enterprise">
+                  <span class="plan-name">Enterprise</span>
+                  <h4 class="plan-title" id="plan-food-enterprise">الباقة المؤسسية</h4>
+                  <p class="plan-for">لسلاسل المطاعم والمطابخ المركزية.</p>
+                  <p class="plan-limits">فروع ومستخدمون بلا حد</p>
+                  <p class="plan-price"><strong>2,950</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 29,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>فروع ومطابخ بلا حد</li>
+                    <li>تجهيز مسبق بأوامر إنتاج في المطبخ المركزي</li>
+                    <li>ربط ضريبي لكل فرع وكل جهاز</li>
+                    <li>أدوار وصلاحيات مخصصة</li>
+                    <li>مدير حساب ودعم ميداني</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+            </div>
+          </div>
+          <div class="plan-panel" id="panel-industry" role="tabpanel" aria-labelledby="tab-industry">
+            <h3 class="plan-panel-title">ورش وتصنيع</h3>
+            <div class="plan-grid">
+                <article class="plan" aria-labelledby="plan-industry-essential">
+                  <span class="plan-name">Essential</span>
+                  <h4 class="plan-title" id="plan-industry-essential">الباقة الأساسية</h4>
+                  <p class="plan-for">لورشة صغيرة تبيع ما تصنعه.</p>
+                  <p class="plan-limits">فرع واحد · حتى 5 مستخدمين</p>
+                  <p class="plan-price"><strong>650</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 6,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>كتالوج خامات ومنتجات نهائية</li>
+                    <li>فواتير بيع وتحصيل</li>
+                    <li>مخزون الخامات والجرد</li>
+                    <li>تقارير المبيعات</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+                <article class="plan plan-featured" aria-labelledby="plan-industry-professional">
+                  <span class="plan-tag">الأكثر طلبًا</span>
+                  <span class="plan-name">Professional</span>
+                  <h4 class="plan-title" id="plan-industry-professional">الباقة الاحترافية</h4>
+                  <p class="plan-for">للورش ومصانع التعبئة والتجهيز.</p>
+                  <p class="plan-limits">حتى 3 فروع · حتى 25 مستخدمًا</p>
+                  <p class="plan-price"><strong>1,450</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 14,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>قوائم مكونات (BOM) للمنتجات</li>
+                    <li>أوامر تشغيل تصرف الخامات وتستلم المنتج</li>
+                    <li>تكلفة المنتج المصنّع</li>
+                    <li>المشتريات والموردون</li>
+                    <li>قيود محاسبية تلقائية</li>
+                  </ul>
+                  <a class="button-primary" href="https://app.foundix.net/register"
+                    >ابدأ مجانًا <span aria-hidden="true">←</span></a
+                  >
+                </article>
+                <article class="plan" aria-labelledby="plan-industry-enterprise">
+                  <span class="plan-name">Enterprise</span>
+                  <h4 class="plan-title" id="plan-industry-enterprise">الباقة المؤسسية</h4>
+                  <p class="plan-for">للمصانع متعددة المخازن وخطوط الإنتاج.</p>
+                  <p class="plan-limits">فروع ومستخدمون بلا حد</p>
+                  <p class="plan-price"><strong>2,950</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 29,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>مصانع ومخازن بلا حد</li>
+                    <li>تتبع الفاقد والهالك لكل أمر تشغيل</li>
+                    <li>ربط ضريبي مركزي</li>
+                    <li>أدوار وصلاحيات مخصصة</li>
+                    <li>مدير حساب ودعم ميداني</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+            </div>
+          </div>
+          <div class="plan-panel" id="panel-trade" role="tabpanel" aria-labelledby="tab-trade">
+            <h3 class="plan-panel-title">توزيع وجملة</h3>
+            <div class="plan-grid">
+                <article class="plan" aria-labelledby="plan-trade-essential">
+                  <span class="plan-name">Essential</span>
+                  <h4 class="plan-title" id="plan-trade-essential">الباقة الأساسية</h4>
+                  <p class="plan-for">لتاجر جملة أو موزع يبدأ بمخزن واحد.</p>
+                  <p class="plan-limits">فرع واحد · حتى 5 مستخدمين</p>
+                  <p class="plan-price"><strong>650</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 6,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>عملاء وفواتير آجلة وكشف حساب</li>
+                    <li>أسعار جملة وقطاعي</li>
+                    <li>مخزون وجرد</li>
+                    <li>الفاتورة الإلكترونية للشركات (B2B)</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+                <article class="plan plan-featured" aria-labelledby="plan-trade-professional">
+                  <span class="plan-tag">الأكثر طلبًا</span>
+                  <span class="plan-name">Professional</span>
+                  <h4 class="plan-title" id="plan-trade-professional">الباقة الاحترافية</h4>
+                  <p class="plan-for">للموزعين بأكثر من مخزن.</p>
+                  <p class="plan-limits">حتى 3 فروع · حتى 25 مستخدمًا</p>
+                  <p class="plan-price"><strong>1,450</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 14,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>مخازن متعددة وتحويلات بينها</li>
+                    <li>المشتريات والموردون والأجل</li>
+                    <li>متابعة أرصدة العملاء والتحصيل</li>
+                    <li>تقارير المبيعات والمخزون حسب الموقع</li>
+                    <li>قيود محاسبية تلقائية</li>
+                  </ul>
+                  <a class="button-primary" href="https://app.foundix.net/register"
+                    >ابدأ مجانًا <span aria-hidden="true">←</span></a
+                  >
+                </article>
+                <article class="plan" aria-labelledby="plan-trade-enterprise">
+                  <span class="plan-name">Enterprise</span>
+                  <h4 class="plan-title" id="plan-trade-enterprise">الباقة المؤسسية</h4>
+                  <p class="plan-for">للوكالات وشبكات التوزيع الكبيرة.</p>
+                  <p class="plan-limits">فروع ومستخدمون بلا حد</p>
+                  <p class="plan-price"><strong>2,950</strong> ج.م / شهريًا</p>
+                  <p class="plan-annual">أو 29,500 ج.م سنويًا (شهران مجانًا)</p>
+                  <ul class="plan-features">
+                    <li>فروع ومخازن بلا حد</li>
+                    <li>ربط ضريبي مركزي</li>
+                    <li>أدوار وصلاحيات مخصصة</li>
+                    <li>شبكة Foundix للتجارة بين الشركات (قريبًا)</li>
+                    <li>مدير حساب ودعم ميداني</li>
+                  </ul>
+                  <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+                </article>
+            </div>
+          </div>
+          <p class="plan-common">
+            <strong>في كل الباقات:</strong> الإيصال والفاتورة الإلكترونية · العمل بدون إنترنت · صلاحيات حسب
+            الدور وسجل لكل عملية · تحديثات مستمرة بلا رسوم إضافية. الأسعار لا تشمل الأجهزة.
+          </p>
+        </div>
+      </section>
+      <section class="section section-white" id="get-started">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">08 / خطوات البداية</span>
+            <h2>من التسجيل إلى أول فاتورة في نفس اليوم.</h2>
+            <p>لا تحتاج إلى فني ولا إلى تركيب. أربع خطوات، وتعمل من المتصفح على أي جهاز.</p>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-num">01</span>
+              <h3>سجّل منشأتك</h3>
+              <p>اسم المنشأة ورابطها وبيانات المالك؛ في أقل من دقيقتين.</p>
+              <small>مجانًا</small>
             </article>
-            <article class="plan plan-featured" aria-labelledby="plan-pro">
-              <span class="plan-tag">الأكثر طلبًا</span>
-              <h3 id="plan-pro">باقة السوبرماركت والمنظفات</h3>
-              <p class="plan-for">للسوبرماركت ومحلات ومصانع المنظفات ذات الموازين والصب.</p>
-              <p class="plan-price"><strong>1,450</strong> ج.م / شهريًا</p>
-              <p class="plan-annual">أو 14,500 ج.م سنويًا (شهران مجانًا + تدريب الكاشير)</p>
-              <ul class="plan-features">
-                <li>حتى 3 نقاط بيع متزامنة</li>
-                <li>باركود الموازين الكامل (Prefix 20 / 21)</li>
-                <li>بيع السوائل والصب بدقة 3 خانات</li>
-                <li>إيصالات إلكترونية مع رمز QR معتمد</li>
-                <li>دفتر حركة مخزون لحظي</li>
-                <li>حسابات الموردين والأجل والمصروفات</li>
-              </ul>
-              <a class="button-primary" href="https://app.foundix.net/register"
-                >ابدأ مجانًا <span aria-hidden="true">←</span></a
-              >
+            <article class="step-card">
+              <span class="step-num">02</span>
+              <h3>أخبرنا عن نشاطك</h3>
+              <p>بيع مباشر أم وصفات؟ فروع؟ مخازن مستقلة؟ مسجّل ضريبيًا؟ ونجهّز الإعدادات المناسبة لك.</p>
+              <small>إعداد تلقائي</small>
             </article>
-            <article class="plan" aria-labelledby="plan-enterprise">
-              <h3 id="plan-enterprise">باقة السلاسل والمصانع</h3>
-              <p class="plan-for">لسلاسل الفروع ومصانع التعبئة ومستودعات التوزيع.</p>
-              <p class="plan-price"><strong>2,950</strong> ج.م / شهريًا</p>
-              <p class="plan-annual">أو 29,500 ج.م سنويًا (شهران مجانًا + تركيب ميداني)</p>
-              <ul class="plan-features">
-                <li>فروع ونقاط بيع غير محدودة</li>
-                <li>موازين شبكية وموازين طبالي</li>
-                <li>خلطات التصنيع وتحويلات المخازن</li>
-                <li>ربط ضريبي مركزي لكل الفروع</li>
-                <li>أدوار وصلاحيات مخصصة</li>
-                <li>مدير حساب ودعم فني ميداني</li>
+            <article class="step-card">
+              <span class="step-num">03</span>
+              <h3>أضف أصنافك</h3>
+              <p>أدخلها يدويًا أو استوردها دفعة واحدة من ملف Excel، مع الوصفات إن وجدت.</p>
+              <small>استيراد Excel</small>
+            </article>
+            <article class="step-card">
+              <span class="step-num">04</span>
+              <h3>ابدأ البيع</h3>
+              <p>افتح الوردية على الكاشير وابدأ؛ المخزون والتقارير تتحدث مع كل فاتورة.</p>
+              <small>جاهز للعمل</small>
+            </article>
+          </div>
+          <div class="steps-cta">
+            <a class="button-primary" href="https://app.foundix.net/register">سجّل منشأتك الآن <span aria-hidden="true">←</span></a>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="coming-soon">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">09 / قريبًا</span>
+            <h2>أكثر من برنامج: شريك لنمو أعمالك.</h2>
+            <p>خدمتان نعمل عليهما الآن، وتصل للمشتركين أولًا.</p>
+          </div>
+          <div class="soon-grid">
+            <article class="soon-card">
+              <span class="status status-soon">قريبًا</span>
+              <h3>دعم الأعمال</h3>
+              <span class="soon-en">Foundix Business</span>
+              <p>فريق يرافق المنشأة بعد التشغيل، ويساعدها على قراءة أرقامها واتخاذ قراراتها.</p>
+              <ul>
+                <li>تهيئة ونقل البيانات من نظامك الحالي</li>
+                <li>تدريب فرق الكاشير والمخزن</li>
+                <li>مراجعة دورية للأداء والمخزون الراكد</li>
+                <li>استشارات في التسعير والتشغيل</li>
               </ul>
-              <a class="button-quiet" href="https://app.foundix.net/register">ابدأ مجانًا</a>
+            </article>
+            <article class="soon-card">
+              <span class="status status-soon">قريبًا</span>
+              <h3>للمطورين</h3>
+              <span class="soon-en">Foundix Developers</span>
+              <p>واجهات برمجية موثقة لربط Foundix بأنظمتك، أو بناء إضافات عليه.</p>
+              <ul>
+                <li>واجهة برمجية عامة (REST API) موثقة</li>
+                <li>إشعارات فورية بالأحداث (Webhooks)</li>
+                <li>أدوات بناء الوحدات (Module SDK)</li>
+                <li>متجر إضافات Foundix (Marketplace)</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -1674,11 +2398,65 @@
         </div>
         <nav class="footer-links" aria-label="روابط تذييل الصفحة">
           <a href="#sectors">الأنشطة</a><a href="#operating-model">طريقة العمل</a
-          ><a href="#capabilities">قدرات المنصة</a><a href="#roles">الأدوار</a
-          ><a href="#pricing">الباقات</a><a href="https://app.foundix.net/login">تسجيل الدخول</a>
+          ><a href="#integrations">التكاملات</a><a href="#offline">بدون إنترنت</a
+          ><a href="#pricing">الباقات</a><a href="#coming-soon">قريبًا</a><a href="https://app.foundix.net/login">تسجيل الدخول</a>
         </nav>
         <span>© 2026 Foundix</span>
       </div>
     </footer>
+    <script>
+      document.documentElement.classList.add("js");
+      (function () {
+        // hero video: honour reduced motion, and let anyone pause it
+        var video = document.getElementById("hero-video");
+        var toggle = document.querySelector(".video-toggle");
+        if (video && toggle) {
+          var setPaused = function (paused) {
+            toggle.setAttribute("aria-pressed", String(paused));
+            toggle.setAttribute("aria-label", paused ? "تشغيل الفيديو" : "إيقاف الفيديو مؤقتًا");
+          };
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            video.removeAttribute("autoplay");
+            video.pause();
+            setPaused(true);
+          }
+          toggle.addEventListener("click", function () {
+            if (video.paused) {
+              video.play();
+              setPaused(false);
+            } else {
+              video.pause();
+              setPaused(true);
+            }
+          });
+        }
+        // pricing: one tab per sector
+        var tabs = Array.prototype.slice.call(document.querySelectorAll(".sector-tab"));
+        var select = function (tab, focus) {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.setAttribute("aria-selected", String(on));
+            t.tabIndex = on ? 0 : -1;
+            document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+          });
+          if (focus) tab.focus();
+        };
+        tabs.forEach(function (tab, i) {
+          tab.addEventListener("click", function () {
+            select(tab, false);
+          });
+          tab.addEventListener("keydown", function (e) {
+            // RTL: the right arrow goes back, the left arrow goes forward
+            var step = { ArrowLeft: 1, ArrowRight: -1 }[e.key];
+            if (e.key === "Home") step = -i;
+            if (e.key === "End") step = tabs.length - 1 - i;
+            if (step === undefined) return;
+            e.preventDefault();
+            select(tabs[(i + step + tabs.length) % tabs.length], true);
+          });
+        });
+        if (tabs.length) select(tabs[0], false);
+      })();
+    </script>
   </body>
 </html>
