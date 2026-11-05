@@ -1619,6 +1619,67 @@
           white-space: normal;
         }
       }
+      /* Full-screen hero: the video sits behind the copy. */
+      .hero {
+        min-height: calc(100svh - 78px);
+        display: flex;
+        align-items: center;
+        isolation: isolate;
+        background: #0c1c18;
+        color: #fff;
+      }
+      .hero::before { display: none; }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+      }
+      .hero-media video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to left, rgba(8, 22, 19, 0.82) 0%, rgba(8, 22, 19, 0.55) 55%, rgba(8, 22, 19, 0.3) 100%),
+          linear-gradient(to top, rgba(8, 22, 19, 0.6), transparent 45%);
+      }
+      .hero .hero-grid {
+        display: block;
+        width: min(var(--max), calc(100% - 48px));
+      }
+      .hero-content { max-width: 680px; }
+      .hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35); }
+      .hero h1 em { color: #6fe0c4; }
+      .hero .hero-copy { color: rgba(255, 255, 255, 0.86); }
+      .hero .hero-login { color: rgba(255, 255, 255, 0.8); }
+      .hero .hero-login a { color: #fff; }
+      .hero .hero-note { color: rgba(255, 255, 255, 0.72); }
+      .hero .hero-note svg { color: #6fe0c4; }
+      .hero .button-quiet {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.45);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(6px);
+      }
+      .hero .button-quiet:hover { background: rgba(255, 255, 255, 0.2); border-color: #fff; }
+      .hero > .video-toggle {
+        inset-block-start: auto;
+        inset-block-end: 20px;
+        inset-inline-start: auto;
+        inset-inline-end: 20px;
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(6px);
+      }
+      @media (max-width: 700px) {
+        .hero { min-height: calc(100svh - 68px); }
+        .hero .hero-grid { width: min(100% - 32px, var(--max)); }
+        .hero-media::after { background: rgba(8, 22, 19, 0.68); }
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -1631,7 +1692,9 @@
       }
       @media print {
         .site-header,
-        .hero-actions {
+        .hero-actions,
+        .hero-media,
+        .video-toggle {
           display: none !important;
         }
         body {
@@ -1640,6 +1703,16 @@
         .section,
         .hero {
           padding-block: 24px;
+        }
+        .hero {
+          min-height: 0;
+          background: #fff;
+          color: var(--ink);
+        }
+        .hero h1,
+        .hero .hero-copy {
+          color: var(--ink);
+          text-shadow: none;
         }
         .sector-card,
         .principle,
@@ -1699,8 +1772,25 @@
     </header>
     <main id="main">
       <section class="hero" id="top">
+        <div class="hero-media" aria-hidden="true">
+          <video
+            id="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="assets/hero-poster.jpg"
+          >
+            <source src="https://d23r9m22xg868b.cloudfront.net/public/homepage-bg-egy.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <button class="video-toggle" type="button" aria-pressed="false" aria-label="إيقاف الفيديو مؤقتًا">
+          <svg class="icon-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor" /><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor" /></svg>
+          <svg class="icon-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5-9-5.5Z" fill="currentColor" /></svg>
+        </button>
         <div class="container hero-grid">
-          <div>
+          <div class="hero-content">
             <h1>إدارة مترابطة،<br /><em>لكل نشاط طريقته.</em></h1>
             <p class="hero-copy">
               من أول حركة مخزون إلى البيع والتشغيل والتحصيل، يجمع Foundix أعمال منشأتك في مكان واحد.
@@ -1730,31 +1820,6 @@
                 /></svg
               >بيانات وتشغيل وصلاحيات مترابطة داخل نظام واحد.
             </p>
-          </div>
-          <div
-            class="system-visual"
-            aria-label="مشاهد من بيئات بيع مختلفة"
-          >
-            <figure class="hero-photo">
-              <video
-                id="hero-video"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto"
-                poster="assets/hero-poster.jpg"
-                aria-label="لقطات من البيع في سوبرماركت وكافيه: اختيار البضاعة، عرض المنتجات، الدفع، وتسليم الطلب"
-              >
-                <source src="assets/hero-loop.mp4" type="video/mp4" />
-              </video>
-              <span class="hero-chip">بيع، مخزون وتحصيل في دورة واحدة</span>
-              <button class="video-toggle" type="button" aria-pressed="false" aria-label="إيقاف الفيديو مؤقتًا">
-                <svg class="icon-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor" /><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor" /></svg>
-                <svg class="icon-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5-9-5.5Z" fill="currentColor" /></svg>
-              </button>
-              <figcaption>من البيع تبدأ الصورة الكاملة.<small>المخزون، التشغيل والتحصيل ضمن دورة واحدة.</small></figcaption>
-            </figure>
           </div>
         </div>
       </section>
