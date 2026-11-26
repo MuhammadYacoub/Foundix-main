@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundix Reel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #162c2a;
+        --ink-2: #1d3836;
+        --body: #465b58;
+        --muted: #71817d;
+        --line: #e0e8e4;
+        --paper: #f7f8f6;
+        --green: #087e70;
+        --green-dark: #075e56;
+        --green-soft: #eaf5f1;
+        --mint: #b9e0d3;
+        --mint-2: #92d0be;
+        --sand: #e9e5dd;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; }
+      body {
+        background: #0d1716;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-family: "Alexandria", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .viewport { position: relative; }
+      .stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        transform-origin: 0 0;
+        background: var(--ink);
+        color: var(--ink);
+        direction: rtl;
+      }
+      .stage * { will-change: transform, opacity; }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .b { display: block; }
+      .ib { display: inline-block; }
+      .en { font-family: "Manrope", sans-serif; direction: ltr; }
+
+      /* shared bits */
+      .orbit {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 90px rgba(255, 255, 255, 0.018), 0 0 0 180px rgba(255, 255, 255, 0.012);
+      }
+      .orbit::before {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--mint-2);
+        top: -11px;
+        left: calc(50% - 11px);
+        box-shadow: 0 0 30px var(--mint-2);
+      }
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 30px;
+        border-radius: 999px;
+        background: var(--green-soft);
+        border: 2px solid #d9ebe4;
+        color: var(--green-dark);
+        font-size: 34px;
+        font-weight: 700;
+      }
+      .kicker i { width: 14px; height: 14px; border-radius: 50%; background: var(--green); display: inline-block; }
+      .kicker.dark { background: rgba(185, 224, 211, 0.1); border-color: rgba(185, 224, 211, 0.25); color: var(--mint); }
+      .kicker.dark i { background: var(--mint-2); }
+      .h-xl { font-size: 112px; line-height: 1.3; font-weight: 800; letter-spacing: -2px; margin: 0; }
+      .h-lg { font-size: 92px; line-height: 1.32; font-weight: 800; letter-spacing: -1.5px; margin: 0; }
+      .em { color: var(--green); }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 78px;
+        height: 78px;
+        border-radius: 22px;
+        background: var(--green);
+        color: #fff;
+        font: 800 40px/1 "Manrope", sans-serif;
+      }
+      .logo-card {
+        padding: 34px 46px;
+        border-radius: 40px;
+        background: #e8e4dc;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.28);
+      }
+      .logo-card img { display: block; width: 720px; height: auto; mix-blend-mode: multiply; }
+      .corner-brand {
+        position: absolute;
+        top: 120px;
+        right: 90px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font: 800 44px/1 "Manrope", sans-serif;
+        letter-spacing: -1px;
+      }
+      .corner-brand .mark { width: 64px; height: 64px; font-size: 32px; border-radius: 18px; }
+      .corner-brand span span { color: var(--green); }
+
+      /* S1 hook */
+      #s1 { background: radial-gradient(120% 80% at 50% 30%, #1f3d3a 0%, var(--ink) 60%); color: #fff; }
+      #s1 .words { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      #s1 .word {
+        font-size: 128px;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -2px;
+      }
+      #s1 .word:nth-child(even) { color: var(--mint); }
+      #s1 .after { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 90px; }
+      #s1 .after .l1 { font-size: 64px; font-weight: 600; color: #cfe0da; }
+      #s1 .after .l2 { font-size: 98px; font-weight: 800; line-height: 1.3; letter-spacing: -2px; margin-top: 20px; }
+      #s1 .after .l2 em { font-style: normal; color: var(--mint); }
+
+      /* S2 insight */
+      #s2 { background: var(--paper); }
+      #s2 .wrap { position: absolute; inset: 300px 90px auto; text-align: center; }
+      #s2 .h-lg { margin-top: 44px; }
+      .chain { position: absolute; top: 960px; left: 90px; right: 90px; height: 330px; }
+      .chain .rail {
+        position: absolute;
+        top: 100px;
+        right: 100px;
+        left: 100px;
+        height: 6px;
+        border-radius: 6px;
+        background: linear-gradient(to left, var(--green), var(--mint-2));
+        transform-origin: right center;
+      }
+      .chain .nodes { position: absolute; inset: 0; display: flex; justify-content: space-between; }
+      .node { width: 200px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+      .node .disc {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        border: 3px solid #d5e8df;
+        box-shadow: 0 24px 50px rgba(22, 44, 42, 0.1);
+        color: var(--green);
+      }
+      .node .disc svg { width: 84px; height: 84px; }
+      .node b { font-size: 40px; font-weight: 800; }
+      #s2 .caption {
+        position: absolute;
+        top: 1430px;
+        left: 90px;
+        right: 90px;
+        text-align: center;
+        font-size: 42px;
+        font-weight: 600;
+        color: var(--body);
+        line-height: 1.6;
+      }
+      #s2 .caption strong { color: var(--green-dark); }
+
+      /* S3 brand */
+      #s3 { background: radial-gradient(110% 70% at 50% 40%, #0a8d7d 0%, var(--green-dark) 70%); color: #fff; }
+      #s3 .center { gap: 0; padding: 0 70px; }
+      #s3 .h-xl { margin-top: 110px; font-size: 98px; }
+      #s3 .h-xl em { font-style: normal; color: var(--mint); }
+      #s3 .pillars { margin-top: 70px; display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+      #s3 .pillars span {
+        display: inline-block;
+        padding: 16px 30px;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      /* S4 sectors */
+      #s4 { background: var(--paper); }
+      #s4 .top { position: absolute; top: 210px; left: 90px; right: 90px; display: flex; justify-content: space-between; align-items: center; }
+      #s4 .count { font: 800 40px/1 "Manrope", sans-serif; color: var(--muted); direction: ltr; }
+      #s4 .count b { color: var(--green); }
+      .panel { position: absolute; inset: 0; }
+      .photo {
+        position: absolute;
+        top: 340px;
+        left: 90px;
+        right: 90px;
+        height: 1000px;
+        border-radius: 44px;
+        overflow: hidden;
+        background: #dce6df;
+        box-shadow: 0 40px 80px rgba(22, 44, 42, 0.18);
+      }
+      .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .photo::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(12, 28, 24, 0.55)); }
+      .photo .tag {
+        position: absolute;
+        z-index: 1;
+        bottom: 40px;
+        right: 40px;
+        padding: 12px 24px;
+        border-radius: 16px;
+        background: rgba(17, 29, 25, 0.62);
+        color: #fff;
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .panel .txt { position: absolute; top: 1385px; left: 90px; right: 90px; }
+      .panel h3 { margin: 0; font-size: 76px; font-weight: 800; letter-spacing: -1px; line-height: 1.25; }
+      .panel p { margin: 14px 0 0; font-size: 38px; color: var(--body); line-height: 1.6; }
+      .flow { display: flex; align-items: center; gap: 14px; margin-top: 30px; }
+      .flow span { display: inline-block; padding: 12px 26px; border-radius: 16px; background: var(--green-soft); color: var(--green-dark); font-size: 34px; font-weight: 700; }
+      .flow em { font-style: normal; color: #90aba0; font: 700 34px "Manrope", sans-serif; display: inline-block; }
+
+      /* S5 operating model */
+      #s5 { background: #fff; }
+      #s5 .head { position: absolute; top: 230px; left: 90px; right: 90px; }
+      #s5 .h-lg { margin-top: 36px; font-size: 84px; }
+      .steps { position: absolute; top: 760px; left: 90px; right: 90px; }
+      .steps .spine { position: absolute; top: 50px; bottom: 50px; right: 49px; width: 4px; background: #cbded5; transform-origin: top center; }
+      .step { position: relative; display: flex; gap: 36px; align-items: flex-start; margin-bottom: 44px; }
+      .step .num {
+        flex: 0 0 auto;
+        width: 102px;
+        height: 102px;
+        border-radius: 30px;
+        display: grid;
+        place-items: center;
+        background: var(--green);
+        color: #fff;
+        font: 800 38px "Manrope", sans-serif;
+        box-shadow: 0 0 0 12px #fff;
+      }
+      .step h3 { margin: 6px 0 6px; font-size: 52px; font-weight: 800; line-height: 1.3; }
+      .step small { display: block; font-size: 32px; color: var(--muted); }
+      #s5 .note {
+        position: absolute;
+        top: 1600px;
+        left: 90px;
+        right: 90px;
+        padding: 30px 36px;
+        border-right: 8px solid var(--green);
+        border-radius: 24px 0 0 24px;
+        background: #f1f7f4;
+        font-size: 36px;
+        line-height: 1.6;
+        color: var(--body);
+      }
+      #s5 .note strong { color: var(--ink); }
+
+      /* S6 principles */
+      #s6 { background: var(--ink); color: #fff; }
+      #s6 .head { position: absolute; top: 230px; left: 90px; right: 90px; text-align: center; }
+      .cards { position: absolute; top: 400px; left: 90px; right: 90px; display: flex; flex-direction: column; gap: 34px; }
+      .pcard {
+        padding: 44px 48px;
+        border-radius: 36px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+        border: 2px solid rgba(255, 255, 255, 0.12);
+      }
+      .pcard .idx { color: var(--mint-2); font: 800 30px "Manrope", sans-serif; letter-spacing: 2px; direction: ltr; display: block; text-align: right; }
+      .pcard h3 { margin: 14px 0 10px; font-size: 60px; font-weight: 800; }
+      .pcard p { margin: 0; font-size: 34px; line-height: 1.6; color: #c4d6d0; }
+      #s6 .closing { position: absolute; top: 1490px; left: 90px; right: 90px; text-align: center; font-size: 62px; font-weight: 800; line-height: 1.45; }
+      #s6 .closing em { font-style: normal; color: var(--mint); }
+
+      /* S7 roles */
+      #s7 { background: var(--paper); }
+      #s7 .head { position: absolute; top: 300px; left: 90px; right: 90px; text-align: center; }
+      #s7 .h-lg { margin-top: 36px; font-size: 74px; }
+      .roles { position: absolute; top: 880px; left: 90px; right: 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+      .role {
+        display: flex;
+        gap: 22px;
+        align-items: flex-start;
+        padding: 32px 30px;
+        border-radius: 30px;
+        background: #fff;
+        border: 2px solid var(--line);
+        box-shadow: 0 18px 40px rgba(22, 44, 42, 0.06);
+      }
+      .role i { flex: 0 0 auto; width: 20px; height: 20px; margin-top: 18px; border-radius: 50%; background: var(--green); }
+      .role strong { display: block; font-size: 36px; white-space: nowrap; font-weight: 800; }
+      .role span { display: block; margin-top: 6px; font-size: 27px; line-height: 1.55; color: var(--muted); }
+
+      /* S8 CTA */
+      #s8 { background: radial-gradient(120% 80% at 50% 35%, #1f3d3a 0%, var(--ink) 62%); color: #fff; }
+      #s8 .center { padding: 0 80px; }
+      #s8 .h-xl { margin-top: 100px; font-size: 104px; }
+      #s8 .sub { margin-top: 34px; font-size: 42px; line-height: 1.6; color: #cfe0da; }
+      .cta {
+        margin-top: 70px;
+        display: inline-flex;
+        align-items: center;
+        gap: 22px;
+        padding: 30px 56px;
+        border-radius: 30px;
+        background: var(--mint);
+        color: var(--ink);
+        font: 800 56px/1 "Manrope", sans-serif;
+        box-shadow: 0 30px 70px rgba(146, 208, 190, 0.3);
+      }
+      .cta .arrow { font-family: "Alexandria", sans-serif; }
+      #s8 .tagline { margin-top: 56px; font: 700 34px "Manrope", sans-serif; letter-spacing: 8px; color: var(--mint-2); text-transform: uppercase; }
+
+      /* preview controls (not part of the video frame) */
+      .controls {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font: 600 13px "Manrope", sans-serif;
+        direction: ltr;
+        z-index: 10;
+      }
+      .controls button { border: 0; border-radius: 9px; padding: 7px 12px; background: #fff; color: #111; font: inherit; cursor: pointer; }
+      .controls input { width: 180px; }
+      body.capture .controls { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="viewport" id="viewport">
+      <div class="stage" id="stage">
+        <!-- S1 — hook -->
+        <section class="scene" id="s1">
+          <div class="orbit" id="o1" style="width: 1100px; height: 1100px; top: -380px; left: -420px"></div>
+          <div class="orbit" id="o1b" style="width: 760px; height: 760px; bottom: -300px; right: -300px"></div>
+          <div class="center">
+            <div class="words" id="words">
+              <span class="word b">متجر؟</span>
+              <span class="word b">مطعم؟</span>
+              <span class="word b">ورشة؟</span>
+              <span class="word b">وكالة توزيع؟</span>
+            </div>
+          </div>
+          <div class="after">
+            <span class="l1 b">نشاطك قد يكون مختلفًا…</span>
+            <span class="l2 b">لكن أساس الإدارة<br /><em>يظل مترابطًا.</em></span>
+          </div>
+        </section>
+
+        <!-- S2 — insight -->
+        <section class="scene" id="s2">
+          <div class="wrap">
+            <span class="kicker"><i></i>من واقع التشغيل</span>
+            <h2 class="h-lg">العملية لا تنتهي<br /><span class="em">عند إصدار الفاتورة.</span></h2>
+          </div>
+          <div class="chain">
+            <div class="rail"></div>
+            <div class="nodes">
+              <div class="node">
+                <div class="disc">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" /><path d="M9 8h6M9 12h6" /></svg>
+                </div>
+                <b>الطلب</b>
+              </div>
+              <div class="node">
+                <div class="disc">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z" /><path d="M3 7.5 12 12l9-4.5M12 12v9" /></svg>
+                </div>
+                <b>المخزون</b>
+              </div>
+              <div class="node">
+                <div class="disc">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" /></svg>
+                </div>
+                <b>التشغيل</b>
+              </div>
+              <div class="node">
+                <div class="disc">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5" /><path d="M3 10h18M16 15h2" /><path d="M6 6V4.5h12V6" /></svg>
+                </div>
+                <b>التحصيل</b>
+              </div>
+            </div>
+          </div>
+          <p class="caption">حين ينعكس الطلب على <strong>المخزون والتشغيل والتحصيل</strong><br />تصل المعلومة الصحيحة للشخص المسؤول.</p>
+        </section>
+
+        <!-- S3 — brand reveal -->
+        <section class="scene" id="s3">
+          <div class="center">
+            <div class="logo-card" id="logo1"><img src="../Resource/logo_foundix.jpg" alt="Foundix" /></div>
+            <h1 class="h-xl"><span class="b" id="b1">إدارة مترابطة،</span><em class="b" id="b2">لكل نشاط طريقته.</em></h1>
+            <div class="pillars">
+              <span>البيع</span><span>المخزون</span><span>التشغيل</span><span>المالية</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- S4 — sectors -->
+        <section class="scene" id="s4">
+          <div class="top">
+            <span class="kicker" id="s4k"><i></i>أنشطة مختلفة. خطوات مألوفة.</span>
+            <span class="count" id="s4c"><b id="s4n">01</b> / 04</span>
+          </div>
+          <div class="panel" id="p1">
+            <figure class="photo" style="margin: 0"><img src="../assets/unsplash-supermarket.jpg" alt="" /><span class="tag">تجزئة · بيع مباشر</span></figure>
+            <div class="txt">
+              <h3>متاجر وسوبرماركت</h3>
+              <p>البضاعة من الاستلام إلى الرف والكاشير.</p>
+              <div class="flow"><span>استلام</span><em>←</em><span>تخزين</span><em>←</em><span>بيع</span></div>
+            </div>
+          </div>
+          <div class="panel" id="p2">
+            <figure class="photo" style="margin: 0"><img src="../assets/sector-restaurant.jpg" alt="" style="object-position: center 40%" /><span class="tag">مطاعم · تجهيز</span></figure>
+            <div class="txt">
+              <h3>مطاعم ومطابخ</h3>
+              <p>الطلب مربوط بالمكونات والتجهيز والتسليم.</p>
+              <div class="flow"><span>مكونات</span><em>←</em><span>تجهيز</span><em>←</em><span>تسليم</span></div>
+            </div>
+          </div>
+          <div class="panel" id="p3">
+            <figure class="photo" style="margin: 0"><img src="../assets/sector-workshop.jpg" alt="" /><span class="tag">ورش · تصنيع ومعالجة</span></figure>
+            <div class="txt">
+              <h3>ورش وتصنيع</h3>
+              <p>الخامات ومراحل التشغيل حتى الفحص والتسليم.</p>
+              <div class="flow"><span>خامات</span><em>←</em><span>تشغيل</span><em>←</em><span>تسليم</span></div>
+            </div>
+          </div>
+          <div class="panel" id="p4">
+            <figure class="photo" style="margin: 0"><img src="../assets/sector-distribution.jpg" alt="" /><span class="tag">وكالات · توزيع</span></figure>
+            <div class="txt">
+              <h3>وكالات وتوزيع</h3>
+              <p>الأسعار والطلبات والمخزون والتحصيل معًا.</p>
+              <div class="flow"><span>تسعير</span><em>←</em><span>طلب</span><em>←</em><span>توزيع</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S5 — operating model -->
+        <section class="scene" id="s5">
+          <div class="head">
+            <span class="kicker"><i></i>نواة تشغيل مشتركة</span>
+            <h2 class="h-lg">من أول حركة مخزون<br /><span class="em">إلى التحصيل.</span></h2>
+          </div>
+          <div class="steps">
+            <div class="spine"></div>
+            <div class="step"><span class="num">01</span><div><h3>عرّف ما تبيعه وما تستخدمه</h3><small>الكتالوج · وحدات القياس · قوائم الأسعار</small></div></div>
+            <div class="step"><span class="num">02</span><div><h3>استلم وخزّن وتابع الحركة</h3><small>المشتريات · المخزون · الفروع</small></div></div>
+            <div class="step"><span class="num">03</span><div><h3>جهّز أو عالج عند الحاجة</h3><small>وصفات · تعبئة · أوامر تشغيل</small></div></div>
+            <div class="step"><span class="num">04</span><div><h3>بِع وتابع التحصيل والإقفال</h3><small>نقطة البيع · العملاء · المالية والتقارير</small></div></div>
+          </div>
+          <div class="note"><strong>المبدأ:</strong> بيانات مشتركة تحت الواجهة، ومسار مناسب لطبيعة كل نشاط فوقها.</div>
+        </section>
+
+        <!-- S6 — principles -->
+        <section class="scene" id="s6">
+          <div class="orbit" id="o6" style="width: 900px; height: 900px; bottom: -680px; left: -380px"></div>
+          <div class="head"><span class="kicker dark"><i></i>تصميم مرن لا يفرض قالبًا واحدًا</span></div>
+          <div class="cards">
+            <div class="pcard"><span class="idx">CORE / 01</span><h3>أساس واحد للبيانات</h3><p>الأصناف والعملاء والفروع والمخازن مترابطة؛ إدخال أقل وأثر أوضح.</p></div>
+            <div class="pcard"><span class="idx">FLOW / 02</span><h3>مسارات حسب نوع العمل</h3><p>بيع مباشر، تجهيز وصفة، أو تصنيع على مراحل؛ بمصطلحات نشاطك.</p></div>
+            <div class="pcard"><span class="idx">CONTROL / 03</span><h3>صلاحية واضحة لكل دور</h3><p>كل شخص ضمن مهامه وموقعه، مع سجل لمن نفّذ وما الذي تغيّر.</p></div>
+          </div>
+          <p class="closing">المشترك يبقى مشتركًا.<br /><em>والتفاصيل تتبع نشاطك.</em></p>
+        </section>
+
+        <!-- S7 — roles -->
+        <section class="scene" id="s7">
+          <div class="corner-brand" id="cb7"><span class="mark">F</span><span>Found<span>ix</span></span></div>
+          <div class="head">
+            <span class="kicker"><i></i>واجهة تناسب مسؤوليتك</span>
+            <h2 class="h-lg">كل فريق يرى<br /><span class="em">ما يحتاجه لإنجاز يومه.</span></h2>
+          </div>
+          <div class="roles">
+            <div class="role"><i></i><div><strong>المالك</strong><span>ملخص النشاط والاستثناءات</span></div></div>
+            <div class="role"><i></i><div><strong>مدير الفرع</strong><span>الورديات والمخزون والفريق</span></div></div>
+            <div class="role"><i></i><div><strong>الكاشير</strong><span>البيع والطلبات والدفع</span></div></div>
+            <div class="role"><i></i><div><strong>المخزن والتشغيل</strong><span>الاستلام والتحضير والجرد</span></div></div>
+            <div class="role"><i></i><div><strong>المحاسب</strong><span>القيود والمطابقة والتقارير</span></div></div>
+            <div class="role"><i></i><div><strong>مسؤول المنشأة</strong><span>الفروع والأدوار والإعدادات</span></div></div>
+          </div>
+        </section>
+
+        <!-- S8 — CTA -->
+        <section class="scene" id="s8">
+          <div class="orbit" id="o8" style="width: 1200px; height: 1200px; top: -520px; right: -520px"></div>
+          <div class="orbit" id="o8b" style="width: 820px; height: 820px; bottom: -360px; left: -360px"></div>
+          <div class="center">
+            <div class="logo-card" id="logo2"><img src="../Resource/logo_foundix.jpg" alt="Foundix" /></div>
+            <h2 class="h-xl" id="c1">ابدأ من طريقة<br />عمل منشأتك.</h2>
+            <p class="sub" id="c2">نظام واحد يربط البيع والمخزون<br />والتشغيل والمالية.</p>
+            <div class="cta" id="c3"><span>foundix.net</span><span class="arrow">←</span></div>
+            <div class="tagline" id="c4">Foundation · Meets · Growth</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="play">Pause</button>
+      <button id="restart">Restart</button>
+      <input id="scrub" type="range" min="0" max="1000" value="0" />
+      <span id="clock">0.0s</span>
+    </div>
+
+    <script>
+      // Deterministic timeline: every frame is a pure function of t (seconds),
+      // so the preview and the frame-by-frame export always match.
+      const T = 37;
+      const W = 1080, H = 1920;
+      const $ = (s, root = document) => [...root.querySelectorAll(s)];
+
+      const ease = {
+        lin: (p) => p,
+        out: (p) => 1 - Math.pow(1 - p, 3),
+        in: (p) => p * p * p,
+        inout: (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2),
+        back: (p) => 1 + 2.4 * Math.pow(p - 1, 3) + 1.4 * Math.pow(p - 1, 2),
+        expo: (p) => (p === 1 ? 1 : 1 - Math.pow(2, -10 * p)),
+      };
+
+      const tweens = [];
+      // props: { o, x, y, s, sx, sy, r, b (blur px), c (bottom-up wipe %), k (circle radius %) } each as [from, to]
+      function A(target, props, start, dur = 0.7, e = "out") {
+        const els = typeof target === "string" ? $(target) : [].concat(target);
+        els.forEach((el) => {
+          for (const k in props) tweens.push({ el, k, from: props[k][0], to: props[k][1], start, dur, e });
+        });
+      }
+      function S(target, props, start, step, dur, e) {
+        $(target).forEach((el, i) => A(el, props, start + i * step, dur, e));
+      }
+      const pop = { o: [0, 1], y: [70, 0], b: [14, 0] };
+      const rise = { o: [0, 1], y: [50, 0] };
+
+      // ---------- S1 hook 0 → 4.4
+      A("#o1", { r: [0, 50] }, 0, 4.6, "lin");
+      A("#o1b", { r: [0, -40] }, 0, 4.6, "lin");
+      S("#words .word", { o: [0, 1], y: [90, 0], s: [0.86, 1], b: [16, 0] }, -0.3, 0.42, 0.55, "out");
+      A("#words", { o: [1, 0], s: [1, 0.88], b: [0, 12] }, 2.25, 0.45, "in");
+      A("#s1 .l1", rise, 2.55, 0.6);
+      A("#s1 .l2", { o: [0, 1], y: [60, 0], s: [0.94, 1] }, 2.85, 0.7);
+
+      // ---------- S2 insight 4.4 → 8.6
+      A("#s2", { c: [100, 0] }, 4.3, 0.7, "inout");
+      A("#s2 .kicker", rise, 4.75, 0.6);
+      A("#s2 .h-lg", { o: [0, 1], y: [60, 0] }, 4.9, 0.7);
+      A("#s2 .rail", { sx: [0, 1] }, 5.75, 1.4, "inout");
+      S("#s2 .node", { o: [0, 1], y: [40, 0], s: [0.7, 1] }, 5.65, 0.34, 0.6, "back");
+      A("#s2 .caption", rise, 7.15, 0.7);
+
+      // ---------- S3 brand 8.6 → 12.2
+      A("#s3", { k: [0, 120] }, 8.5, 0.8, "inout");
+      A("#logo1", { o: [0, 1], s: [0.8, 1], y: [40, 0] }, 8.85, 0.8, "back");
+      A("#b1", pop, 9.45, 0.6);
+      A("#b2", pop, 9.75, 0.6);
+      S("#s3 .pillars span", { o: [0, 1], y: [30, 0], s: [0.85, 1] }, 10.3, 0.13, 0.5, "back");
+
+      // ---------- S4 sectors 12.2 → 20.6 (2.1 s each)
+      A("#s4", { c: [100, 0] }, 12.1, 0.7, "inout");
+      A("#s4k", rise, 12.6, 0.6);
+      A("#s4c", rise, 12.75, 0.6);
+      const P = 2.1, p0 = 12.45;
+      ["#p1", "#p2", "#p3", "#p4"].forEach((id, i) => {
+        const t0 = p0 + i * P;
+        const panel = $(id)[0];
+        if (i > 0) A(panel, { x: [1080, 0] }, t0 - 0.05, 0.7, "inout");
+        else A(panel, { o: [0, 1] }, t0 - 0.05, 0.3);
+        A($(".photo img", panel), { s: [1.18, 1.02] }, t0 - 0.05, P + 0.6, "lin");
+        A($(".tag", panel), rise, t0 + 0.45, 0.5);
+        A($("h3", panel), rise, t0 + 0.35, 0.55);
+        A($("p", panel), rise, t0 + 0.5, 0.55);
+        $(".flow > *", panel).forEach((el, j) => A(el, { o: [0, 1], x: [30, 0] }, t0 + 0.65 + j * 0.08, 0.4));
+        if (i < 3) A(panel, { x: [0, -380], o: [1, 0] }, t0 + P - 0.05, 0.7, "inout");
+      });
+      // counter
+      const counter = $("#s4n")[0];
+
+      // ---------- S5 operating model 20.6 → 25.6
+      A("#s5", { y: [H, 0] }, 20.55, 0.75, "inout");
+      A("#s5 .kicker", rise, 21.0, 0.6);
+      A("#s5 .h-lg", rise, 21.15, 0.7);
+      A("#s5 .spine", { sy: [0, 1] }, 21.6, 2.2, "inout");
+      S("#s5 .step", { o: [0, 1], x: [120, 0] }, 21.6, 0.55, 0.6, "out");
+      S("#s5 .num", { s: [0.4, 1] }, 21.6, 0.55, 0.6, "back");
+      A("#s5 .note", rise, 24.0, 0.7);
+
+      // ---------- S6 principles 25.6 → 29.4
+      A("#s6", { k: [0, 120] }, 25.5, 0.8, "inout");
+      A("#o6", { r: [0, 40] }, 25.5, 4.2, "lin");
+      A("#s6 .kicker", rise, 25.95, 0.6);
+      S("#s6 .pcard", { o: [0, 1], y: [80, 0], s: [0.95, 1] }, 26.15, 0.45, 0.65, "out");
+      A("#s6 .closing", pop, 27.85, 0.7);
+
+      // ---------- S7 roles 29.4 → 32.6
+      A("#s7", { c: [100, 0] }, 29.3, 0.7, "inout");
+      A("#cb7", rise, 29.75, 0.6);
+      A("#s7 .kicker", rise, 29.8, 0.6);
+      A("#s7 .h-lg", rise, 29.95, 0.7);
+      S("#s7 .role", { o: [0, 1], y: [50, 0], s: [0.9, 1] }, 30.45, 0.16, 0.55, "back");
+
+      // ---------- S8 CTA 32.6 → 37
+      A("#s8", { k: [0, 120] }, 32.5, 0.85, "inout");
+      A("#o8", { r: [0, 45] }, 32.5, 4.6, "lin");
+      A("#o8b", { r: [0, -35] }, 32.5, 4.6, "lin");
+      A("#logo2", { o: [0, 1], s: [0.8, 1], y: [40, 0] }, 32.9, 0.8, "back");
+      A("#c1", pop, 33.45, 0.7);
+      A("#c2", rise, 33.85, 0.6);
+      A("#c3", { o: [0, 1], s: [0.7, 1], y: [30, 0] }, 34.25, 0.7, "back");
+      A("#c4", { o: [0, 1] }, 34.75, 0.8);
+      A("#c3", { s: [1, 1.05] }, 35.4, 0.5, "inout");
+      A("#c3", { s: [1.05, 1] }, 35.9, 0.5, "inout");
+
+      tweens.sort((a, b) => a.start - b.start);
+      const touched = [...new Set(tweens.map((t) => t.el))];
+
+      function render(t) {
+        const state = new Map();
+        for (const el of touched) state.set(el, { o: 1, x: 0, y: 0, s: 1, sx: 1, sy: 1, r: 0, b: 0, c: null, k: null, _set: {} });
+        for (const tw of tweens) {
+          const st = state.get(tw.el);
+          const p = Math.min(1, Math.max(0, (t - tw.start) / tw.dur));
+          if (p <= 0) {
+            if (!st._set[tw.k]) { st[tw.k] = tw.from; st._set[tw.k] = 1; }
+          } else {
+            st[tw.k] = tw.from + (tw.to - tw.from) * ease[tw.e](p);
+            st._set[tw.k] = 1;
+          }
+        }
+        for (const [el, st] of state) {
+          el.style.opacity = st.o;
+          el.style.transform = `translate(${st.x}px, ${st.y}px) scale(${st.s * st.sx}, ${st.s * st.sy}) rotate(${st.r}deg)`;
+          el.style.filter = st.b > 0.05 ? `blur(${st.b}px)` : "none";
+          if (st.c !== null) el.style.clipPath = `inset(${st.c}% 0 0 0)`;
+          else if (st.k !== null) el.style.clipPath = `circle(${st.k}% at 50% 50%)`;
+        }
+        counter.textContent = "0" + Math.min(4, Math.max(1, Math.floor((t - p0 - 0.3) / P) + 1));
+      }
+
+      // ---------- sizing / preview loop
+      const stage = $("#stage")[0], vp = $("#viewport")[0];
+      const capture = new URLSearchParams(location.search).has("capture");
+      if (capture) document.body.classList.add("capture");
+      function fit() {
+        const k = capture ? 1 : Math.min(innerWidth / W, (innerHeight - 70) / H);
+        stage.style.transform = `scale(${k})`;
+        vp.style.width = W * k + "px";
+        vp.style.height = H * k + "px";
+      }
+      addEventListener("resize", fit);
+      fit();
+
+      window.seek = (t) => render(t);
+      window.REEL_DURATION = T;
+      window.reelReady = Promise.all([
+        document.fonts.ready,
+        ...$("img").map((i) => (i.complete ? 0 : new Promise((r) => (i.onload = i.onerror = r)))),
+      ]);
+
+      if (!capture) {
+        let playing = true, t0 = performance.now(), cur = 0;
+        const btn = $("#play")[0], scrub = $("#scrub")[0], clock = $("#clock")[0];
+        function frame(now) {
+          if (playing) cur = ((now - t0) / 1000) % T;
+          render(cur);
+          scrub.value = (cur / T) * 1000;
+          clock.textContent = cur.toFixed(1) + "s";
+          requestAnimationFrame(frame);
+        }
+        btn.onclick = () => {
+          playing = !playing;
+          btn.textContent = playing ? "Pause" : "Play";
+          if (playing) t0 = performance.now() - cur * 1000;
+        };
+        $("#restart")[0].onclick = () => { cur = 0; t0 = performance.now(); playing = true; btn.textContent = "Pause"; };
+        scrub.oninput = () => { cur = (scrub.value / 1000) * T; t0 = performance.now() - cur * 1000; };
+        window.reelReady.then(() => { t0 = performance.now(); requestAnimationFrame(frame); });
+      } else {
+        render(0);
+      }
+    </script>
+  </body>
+</html>
